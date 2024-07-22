@@ -1,12 +1,7 @@
 [tool.poetry]
 name = "gsap"
 version = "0.0.0"
-description = "NGS devices generate short sequence reads collated together into raw unassembled
-sequence data formats, such as FASTQ. There are a series of steps involved in
-converting the raw data into some form ready to be consumed by other high-
-level bioinformatic analyses. This Python package is a software pipeline implementation that automates
-the assembly and the annotation of NGS sequence data from short sequence reads. The pipeline also performs
-variant analysis to annotate the assembled sequence about any SNPs and INDELs with respect to a reference genome of choice."
+description = "NGS devices generate short sequence reads collated together into raw unassembled sequence data formats, such as FASTQ. There are a series of steps involved in converting the raw data into some form ready to be consumed by other high-level bioinformatic analyses. This Python package is a software pipeline implementation that automates the assembly and the annotation of NGS sequence data from short sequence reads. The pipeline also performs variant analysis to annotate the assembled sequence about any SNPs and INDELs with respect to a reference genome of choice."
 authors = ["Sunny Park <sungshic@hotmail.com>"]
 license = "MIT"
 readme = "README.md"
