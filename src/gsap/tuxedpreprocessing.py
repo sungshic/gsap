@@ -144,7 +144,7 @@ class TPreProcessor():
         histogram_file = "test_hist.pdf"
         try:
             subprocess.call(
-                ["java", "-jar", "toolset/picard-tools/CollectInsertSizeMetrics.jar", "INPUT=", self._data_outdir + sorted_bam, "HISTOGRAM_FILE=", self._data_outdir + histogram_file, "OUTPUT=", self._data_outdir + out_text])
+                ["picard-tools", "CollectInsertSizeMetrics", "INPUT=", self._data_outdir + sorted_bam, "HISTOGRAM_FILE=", self._data_outdir + histogram_file, "OUTPUT=", self._data_outdir + out_text])
             stdin = os.popen("head -8 " + self._data_outdir + out_text + " | tail -2 | cut -f 5,6")
             metrics = stdin.read()
             datalist = re.split('\n|\t', metrics)

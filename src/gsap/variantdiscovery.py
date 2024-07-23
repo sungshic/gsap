@@ -25,7 +25,7 @@ class VariantCaller():
 
     def _callVariants(self, refgenome_filepath, inputbam_filepath, outputvcf_filename):
         try:
-            subprocess.call(['java', '-Xmx4g', '-Djava.io.tmpdir='+self._tmpdir ,'-jar', self._home_dir+'toolset/GATK/gatk-package-4.6.0.0-local.jar',
+            subprocess.call(['java', '-Xmx4g', '-Djava.io.tmpdir='+self._tmpdir ,'-jar', self._home_dir+'toolset/gatk-4.6.0.0/gatk-package-4.6.0.0-local.jar',
                              'HaplotypeCaller',
                              '-R', refgenome_filepath,
                              '-I', inputbam_filepath,
