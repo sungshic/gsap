@@ -1,0 +1,171 @@
+LOCUS       region_[1736886_1738940] 2055 bp                        30-NOV-2012
+EMBL_ID     region_[1736886_1738940] 2055 bp                        29-NOV-2012
+UNIMARK     region [1736886 1738940] annotations
+            region [1736886 1738940]
+FEATURES             Location/Qualifiers
+     gene            1..930
+                     /gene="truB"
+                     /locus_tag="BSU16660"
+                     /db_xref="GeneID:939638"
+     CDS             1..930
+                     /gene="truB"
+                     /locus_tag="BSU16660"
+                     /EC_number="5.4.99.-"
+                     /function="16.2: Construct biomass (Anabolism)"
+                     /function="16.6: Maintain"
+                     /inference="ab initio prediction:AMIGene:2.0"
+                     /note="catalyzes isomerization of specific uridines in  
+                     RNAto pseudouridine; responsible for residues in T loops  
+                     of many tRNAs"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="tRNA pseudouridine synthase B"
+                     /protein_id="NP_389548.1"
+                     /db_xref="GI:16078729"
+                     /db_xref="GeneID:939638"
+                     /translation="MVNGVLLLHKPVGMTSHDCVMKIRKLLKTKKVGHTGTLDPEVSG
+                     VLPICVGRATKIVEYLTEKSKTYDAEITLGFSTTTEDQTGETVETKPVNHDIDKADVE
+                     KVLNSLKGKQEQIPPMYSAVKVNGKKLYEYARAGIEVERPKRMITIEDIALTTEIKHH
+                     GETASFRFTVTCSKGTYVRTLAVMIGEKLGYPAHMSHLIRTASGDFSLDECFTFDELE
+                     AQAQSGTVEEHTVPIERALNHLPKWIISDTLAKKVENGALLETPEQFSEMTSGDRIAV
+                     FTESGTCLAIYFPHPAKKGLLKPAKVLMQKSEQ"
+     misc_feature    937..957
+                     /score=78
+     primer          938..957
+                     /tm="59.3099"
+                     /gc%=55
+                     /any=4
+                     /3'=3
+                     /product_size=1059
+                     /ugene_group="top_primers/pair 2"
+     primer          939..958
+                     /tm="60.44"
+                     /gc%=50
+                     /any=4
+                     /3'=1
+                     /product_size=1055
+                     /ugene_group="top_primers/pair 5"
+     primer          939..958
+                     /tm="60.44"
+                     /gc%=50
+                     /any=4
+                     /3'=1
+                     /product_size=1056
+                     /ugene_group="top_primers/pair 4"
+     primer          939..958
+                     /tm="60.44"
+                     /gc%=50
+                     /any=4
+                     /3'=1
+                     /product_size=1058
+                     /ugene_group="top_primers/pair 3"
+     primer          939..958
+                     /tm="60.44"
+                     /gc%=50
+                     /any=4
+                     /3'=1
+                     /product_size=1058
+                     /ugene_group="top_primers/pair 1"
+     gene            949..1899
+                     /gene="ribC"
+                     /locus_tag="BSU16670"
+                     /db_xref="GeneID:938110"
+     CDS             949..1899
+                     /gene="ribC"
+                     /locus_tag="BSU16670"
+                     /EC_number="2.7.1.26"
+                     /EC_number="2.7.7.2"
+                     /function="16.2: Construct biomass (Anabolism)"
+                     /inference="ab initio prediction:AMIGene:2.0"
+                     /note="catalyzes the formation of FMN from riboflavin and 
+                     the formation of FAD from FMN; in Bacillus the ribC gene  
+                     has both flavokinase and FAD synthetase activities"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="bifunctional riboflavin kinase/FMN  
+                     adenylyltransferase"
+                     /protein_id="NP_389549.1"
+                     /db_xref="GI:16078730"
+                     /db_xref="GeneID:938110"
+                     /translation="MKTIHITHPHHLIKEEQAKSVMALGYFDGVHLGHQKVIGTAKQI
+                     AEEKGLTLAVMTFHPHPSHVLGRDKEPKDLITPLEDKINQIEQLGTEVLYVVKFNEVF
+                     ASLSPKQFIDQYIIGLNVQHAVAGFDFTYGKYGKGTMKTMPDDLDGKAGCTMVEKLTE
+                     QDKKISSSYIRTALQNGDVELANVLLGQPYFIKGIVIHGDKRGRTIGFPTANVGLNNS
+                     YIVPPTGVYAVKAEVNGEVYNGVCNIGYKPTFYEKRPEQPSIEVNLFDFNQEVYGAAI
+                     KIEWYKRIRSERKFNGIKELTEQIEKDKQEAIRYFSNLRK"
+     primer          complement(1974..1993)
+                     /tm="58.8164"
+                     /gc%=40
+                     /any=5
+                     /3'=2
+                     /product_size=1055
+                     /ugene_group="top_primers/pair 5"
+     primer          complement(1974..1994)
+                     /tm="60.1159"
+                     /gc%="38.0952"
+                     /any=5
+                     /3'=2
+                     /product_size=1056
+                     /ugene_group="top_primers/pair 4"
+     primer          complement(1976..1996)
+                     /tm="59.9569"
+                     /gc%="38.0952"
+                     /any=7
+                     /3'=2
+                     /product_size=1058
+                     /ugene_group="top_primers/pair 3"
+     primer          complement(1977..1996)
+                     /tm="59.9446"
+                     /gc%=40
+                     /any=7
+                     /3'=2
+                     /product_size=1059
+                     /ugene_group="top_primers/pair 2"
+     primer          complement(1977..1996)
+                     /tm="59.9446"
+                     /gc%=40
+                     /any=7
+                     /3'=2
+                     /product_size=1058
+                     /ugene_group="top_primers/pair 1"
+     misc_feature    complement(1981..2015)
+                     /score=126
+     misc_feature    complement(1981..2015)
+                     /score=126
+ORIGIN
+        1 ATGGTTAACG GAGTTCTCCT TTTACATAAA CCTGTTGGCA TGACATCGCA CGACTGTGTC
+       61 ATGAAGATCC GAAAGCTGTT AAAAACAAAA AAAGTAGGAC ATACAGGAAC GCTCGATCCG
+      121 GAAGTATCAG GCGTGCTTCC GATTTGTGTA GGAAGAGCGA CAAAAATAGT CGAATACTTA
+      181 ACTGAAAAAT CTAAAACGTA TGATGCAGAA ATAACATTGG GCTTTTCAAC CACAACAGAG
+      241 GATCAAACCG GAGAAACGGT GGAAACAAAG CCTGTCAATC ACGACATTGA TAAAGCGGAT
+      301 GTAGAAAAGG TTTTAAACAG TTTAAAGGGG AAACAAGAAC AAATTCCGCC CATGTATTCC
+      361 GCTGTAAAAG TAAACGGCAA AAAATTATAC GAATACGCAA GAGCAGGGAT TGAAGTAGAA
+      421 CGTCCGAAAC GTATGATAAC CATTGAAGAC ATTGCCCTGA CAACAGAGAT TAAACATCAT
+      481 GGAGAAACCG CAAGCTTCCG GTTTACAGTG ACTTGCTCCA AAGGGACCTA TGTAAGGACG
+      541 CTGGCGGTCA TGATCGGAGA AAAGCTCGGA TATCCGGCCC ATATGTCTCA TTTAATCCGT
+      601 ACGGCATCCG GAGATTTTTC TCTCGACGAA TGCTTTACTT TTGATGAACT CGAAGCACAG
+      661 GCCCAATCCG GAACCGTGGA AGAGCATACA GTTCCTATTG AACGTGCGCT CAATCATTTG
+      721 CCGAAATGGA TCATAAGTGA TACATTAGCT AAGAAAGTAG AAAATGGGGC TTTGCTTGAG
+      781 ACGCCCGAGC AGTTTTCTGA AATGACAAGT GGAGACCGTA TTGCCGTCTT TACTGAATCC
+      841 GGAACCTGCT TGGCGATCTA TTTCCCTCAT CCTGCAAAAA AAGGGCTGTT AAAGCCGGCA
+      901 AAAGTATTGA TGCAAAAAAG CGAACAATAG AAAAAAGGTG ACCGTTCTGT GAAGACGATA
+      961 CATATTACAC ATCCTCATCA TTTAATAAAA GAGGAGCAGG CAAAATCAGT GATGGCGTTA
+     1021 GGTTATTTTG ACGGCGTTCA TCTCGGGCAT CAAAAGGTAA TCGGCACAGC GAAGCAAATA
+     1081 GCCGAAGAAA AAGGTCTGAC ATTAGCTGTG ATGACCTTTC ATCCCCATCC TTCTCACGTG
+     1141 TTGGGCAGAG ATAAGGAACC AAAGGATCTG ATTACGCCTC TTGAAGACAA AATAAACCAA
+     1201 ATTGAACAAT TAGGCACAGA AGTTCTGTAT GTCGTTAAAT TTAATGAAGT GTTTGCTTCT
+     1261 CTTTCTCCTA AGCAGTTTAT AGACCAGTAT ATTATCGGCC TTAATGTGCA GCACGCAGTG
+     1321 GCAGGCTTTG ACTTTACGTA CGGCAAATAC GGCAAGGGAA CAATGAAGAC CATGCCGGAT
+     1381 GATTTAGACG GAAAAGCTGG GTGCACAATG GTAGAAAAAT TAACGGAGCA GGATAAAAAA
+     1441 ATCAGTTCTT CGTATATCCG TACCGCGCTT CAAAACGGAG ATGTTGAATT GGCGAATGTC
+     1501 TTGCTTGGAC AACCTTATTT TATTAAAGGA ATTGTCATTC ATGGTGATAA AAGAGGGCGG
+     1561 ACCATCGGGT TTCCGACAGC GAATGTCGGT TTAAATAACA GCTATATCGT TCCGCCCACA
+     1621 GGTGTATATG CCGTAAAAGC GGAAGTGAAC GGCGAAGTTT ACAATGGCGT TTGCAATATT
+     1681 GGCTATAAGC CAACGTTTTA TGAAAAGCGC CCTGAACAGC CTTCCATCGA GGTCAATCTG
+     1741 TTTGATTTCA ATCAAGAGGT ATATGGAGCC GCTATAAAAA TCGAATGGTA CAAACGGATT
+     1801 CGGAGCGAGC GGAAATTCAA TGGCATCAAA GAATTAACTG AGCAAATTGA GAAAGATAAG
+     1861 CAGGAAGCCA TCCGTTATTT CAGCAATTTG CGGAAATAAC TTGCAACGCA CGCAAATTTT
+     1921 ATTCTAAAAT ATTTGCATAT AGGCACGATT TTTAGTATGA TAGTTTTCGT AGTCTTAAAA
+     1981 CCATTGCTTG GCAATCCGAA GTCACCGACG GTTGCTAGGT AACTGGGGCT AAATATGATT
+     2041 TGGAGGTGAA ACAGG
+//

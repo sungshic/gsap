@@ -1,0 +1,8 @@
+deap==1.4.1
+numpy==1.26.4
+scipy==1.14.0
+fcsparser==0.2.8
+FlowCytometryTools==0.5.1
+matplotlib==3.9.1
+biopython==1.84
+PyVCF3==1.0.3

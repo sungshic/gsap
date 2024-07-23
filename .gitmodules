@@ -1,0 +1,3 @@
+[submodule "src/gsap/toolset/bcftools"]
+	path = src/gsap/toolset/bcftools
+	url = https://github.com/samtools/bcftools.git

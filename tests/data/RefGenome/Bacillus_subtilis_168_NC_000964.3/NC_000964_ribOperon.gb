@@ -1,0 +1,215 @@
+LOCUS       region_[2427780_2431736] 3957 bp                        29-NOV-2012
+EMBL_ID     region_[2427780_2431736] 3957 bp                        28-NOV-2012
+UNIMARK     region [2427780 2431736] annotations
+            region [2427780 2431736]
+FEATURES             Location/Qualifiers
+     misc_feature    complement(1..3957)
+                     /ugene_name="rib operon"
+     gene            complement(113..577)
+                     /gene="ribH"
+                     /locus_tag="BSU23250"
+                     /db_xref="GeneID:938949"
+     CDS             complement(113..577)
+                     /gene="ribH"
+                     /locus_tag="BSU23250"
+                     /EC_number="2.5.1.9"
+                     /function="16.2: Construct biomass (Anabolism)"
+                     /inference="ab initio prediction:AMIGene:2.0"
+                     /note="RibE; 6,7-diimethyl-8-ribityllumazine synthase;  
+                     DMRL synthase; lumazine synthase; beta subunit of  
+                     riboflavin synthase; condenses  
+                     5-amino-6-(1'-D)-ribityl-amino-2,4(1H,3H)-pyrimidinedione 
+                      with L-3,4-dihydrohy-2-butanone-4-phosphate to generate 
+                     6, 6-dimethyl-8-lumazine (DMRL); riboflavin synthase then 
+                      uses 2 molecules of DMRL to produce riboflavin (vitamin  
+                     B12); involved in the last steps of riboflavin  
+                     biosynthesis; forms a 60mer (icosahedral shell) in both  
+                     Bacillus subtilis and Escherichia coli; in Bacillus  
+                     subtilis this 60mer is associated with the riboflavin  
+                     synthase subunit (alpha) while in Escherichia coli it is  
+                     not"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="6,7-dimethyl-8-ribityllumazine synthase"
+                     /protein_id="NP_390206.1"
+                     /db_xref="GI:16079382"
+                     /db_xref="GeneID:938949"
+                     /translation="MNIIQGNLVGTGLKIGIVVGRFNDFITSKLLSGAEDALLRHGVD
+                     TNDIDVAWVPGAFEIPFAAKKMAETKKYDAIITLGTVIRGATTHYDYVCNEAAKGIAQ
+                     AANTTGVPVIFGIVTTENIEQAIERAGTKAGNKGVDCAVSAIEMANLNRSFE"
+     gene            complement(610..1806)
+                     /gene="ribA"
+                     /locus_tag="BSU23260"
+                     /db_xref="GeneID:938946"
+     CDS             complement(610..1806)
+                     /gene="ribA"
+                     /locus_tag="BSU23260"
+                     /EC_number="3.5.4.25"
+                     /function="16.2: Construct biomass (Anabolism)"
+                     /inference="ab initio prediction:AMIGene:2.0"
+                     /note="bifunctional enzyme DHBP synthase/GTP  
+                     cyclohydrolase II; functions in riboflavin synthesis;  
+                     converts GTP to 2, 
+                     5-diamino-6-hydroxy-4-(5-phosphoribosylamino)pyrimidine;  
+                     converts ribulose 5-phopshate to 3,4-dihydroxy-2-butanone 
+                      4-phosphate"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="bifunctional 3,4-dihydroxy-2-butanone  
+                     4-phosphate synthase/GTP cyclohydrolase II protein"
+                     /protein_id="NP_390207.1"
+                     /db_xref="GI:16079383"
+                     /db_xref="GeneID:938946"
+                     /translation="MFHPIEEALDALKKGEVIIVVDDEDRENEGDFVALAEHATPEVI
+                     NFMATHGRGLICTPLSEEIADRLDLHPMVEHNTDSHHTAFTVSIDHRETKTGISAQER
+                     SFTVQALLDSKSVPSDFQRPGHIFPLIAKKGGVLKRAGHTEAAVDLAEACGSPGAGVI
+                     CEIMNEDGTMARVPELIEIAKKHQLKMITIKDLIQYRYNLTTLVEREVDITLPTDFGT
+                     FKVYGYTNEVDGKEHVAFVMGDVPFGEEPVLVRVHSECLTGDVFGSHRCDCGPQLHAA
+                     LNQIAAEGRGVLLYLRQEGRGIGLINKLKAYKLQEQGYDTVEANEALGFLPDLRNYGI
+                     GAQILRDLGVRNMKLLTNNPRKIAGLEGYGLSISERVPLQMEAKEHNKKYLQTKMNKL
+                     GHLLHF"
+     gene            complement(1821..2468)
+                     /gene="ribE"
+                     /locus_tag="BSU23270"
+                     /db_xref="GeneID:938947"
+     CDS             complement(1821..2468)
+                     /gene="ribE"
+                     /locus_tag="BSU23270"
+                     /EC_number="2.5.1.9"
+                     /function="16.2: Construct biomass (Anabolism)"
+                     /inference="ab initio prediction:AMIGene:2.0"
+                     /note="catalyzes the formation of riboflavin from 6, 
+                     7-dimethyl-8-(1-D-ribityl)lumazine"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="riboflavin synthase subunit alpha"
+                     /protein_id="NP_390208.1"
+                     /db_xref="GI:16079384"
+                     /db_xref="GeneID:938947"
+                     /translation="MFTGIIEETGTIESMKKAGHAMALTIKCSKILEDVHLGDSIAVN
+                     GICLTVTDFTKNQFTVDVMPETVKATSLNDLTKGSKVNLERAMAANGRFGGHFVSGHV
+                     DGTAEITRIEEKSNAVYYDLKMDPSLTKTLVLKGSITVDGVSLTIFGLTEDTVTISLI
+                     PHTISETIFSEKTIGSKVNIECDMIGKYMYRFLHKANENKTQQTITKAFLSENGF"
+     gene            complement(2479..3564)
+                     /gene="ribD"
+                     /locus_tag="BSU23280"
+                     /db_xref="GeneID:938945"
+     CDS             complement(2479..3564)
+                     /gene="ribD"
+                     /locus_tag="BSU23280"
+                     /EC_number="1.1.1.193"
+                     /EC_number="3.5.4.26"
+                     /function="16.2: Construct biomass (Anabolism)"
+                     /inference="ab initio prediction:AMIGene:2.0"
+                     /note="Evidence 1a: Function experimentally demonstrated  
+                     in the studied strain; PubMedId: 12456892, 18986985,  
+                     9068650; Product type e: enzyme"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="bifunctional  
+                     diaminohydroxyphosphoribosylaminopyrimidine  
+                     deaminase/5-amino-6-(5-phosphoribosylamino) uracil  
+                     reductase"
+                     /protein_id="NP_390209.1"
+                     /db_xref="GI:16079385"
+                     /db_xref="GeneID:938945"
+                     /translation="MEEYYMKLALDLAKQGEGQTESNPLVGAVVVKDGQIVGMGAHLK
+                     YGEAHAEVHAIHMAGAHAEGADIYVTLEPCSHYGKTPPCAELIINSGIKRVFVAMRDP
+                     NPLVAGRGISMMKEAGIEVREGILADQAERLNEKFLHFMRTGLPYVTLKAAASLDGKI
+                     ATSTGDSKWITSEAARQDAQQYRKTHQSILVGVGTVKADNPSLTCRLPNVTKQPVRVI
+                     LDTVLSIPEDAKVICDQIAPTWIFTTARADEEKKKRLSAFGVNIFTLETERIQIPDVL
+                     KILAEEGIMSVYVEGGSAVHGSFVKEGCFQEIIFYFAPKLIGGTHAPSLISGEGFQSM
+                     KDVPLLQFTDITQIGRDIKLTAKPTKE"
+     terminator      complement(3604..3611)
+                     /ugene_group="regulators"
+     misc_feature    complement(3623..3630)
+                     /ugene_name="terminator_pair"
+                     /ugene_group="regulators"
+     gene            complement(3694..3838)
+                     /locus_tag="BSU_misc_RNA_36"
+                     /db_xref="GeneID:8303200"
+     misc_RNA        complement(3694..3838)
+                     /locus_tag="BSU_misc_RNA_36"
+                     /product="FMN"
+                     /inference="profile:Rfam:8.1"
+                     /db_xref="GeneID:8303200"
+     misc_feature    complement(3824..3831)
+                     /ugene_name="anti_terminator"
+                     /ugene_group="regulators"
+     misc_feature    complement(3850..3901)
+                     /ugene_name="P_SigA1"
+                     /ugene_group="promoters"
+     misc_feature    complement(3866..3871)
+                     /ugene_name=-10
+                     /ugene_group="promoters"
+     misc_feature    complement(3889..3894)
+                     /ugene_name=-35
+                     /ugene_group="promoters"
+ORIGIN
+        1 AAAAACCCCT CTATATCCAA AATGTCCAGT CTGCTATTAA CGGATACGAA TAGGTGATCC
+       61 GTTTTCTCAC ATTATATCAT TTTCGCCATA TTTTTAAACT GTTTTCAGCA AATTATTCAA
+      121 ATGAGCGGTT TAAATTTGCC ATTTCAATGG CAGAAACAGC ACAATCTACA CCTTTGTTGC
+      181 CCGCTTTTGT GCCGGCACGC TCGATAGCCT GTTCGATGTT TTCAGTTGTT ACAATTCCAA
+      241 AGATGACAGG TACACCAGTA GTGTTTGCTG CTTGCGCGAT GCCTTTTGCA GCTTCATTGC
+      301 AGACATAATC GTAATGTGTC GTTGCGCCTC TGATGACAGT GCCCAATGTG ATAATAGCAT
+      361 CATATTTTTT TGTTTCCGCC ATTTTTTTCG CAGCAAACGG TATTTCAAAT GCGCCTGGAA
+      421 CCCAAGCCAC ATCAATGTCA TTTGTGTCTA CGCCATGTCT GAGCAGCGCA TCTTCTGCTC
+      481 CGCTCAGCAG CTTGCTCGTA ATAAAATCAT TAAATCTTCC TACTACGATT CCGATTTTAA
+      541 GACCTGTACC AACTAAATTT CCTTGTATGA TATTCATATG ATTCCCATCC TTTTTTGTGA
+      601 TATTTGTGAT TAGAAATGAA GTAAATGACC TAGCTTGTTC ATTTTGGTTT GCAAATATTT
+      661 TTTATTGTGT TCTTTCGCCT CCATTTGAAG CGGCACTCTT TCTGAAATAC TGAGTCCGTA
+      721 GCCTTCAAGG CCTGCGATTT TTCGCGGATT ATTCGTCAAA AGCTTCATAT TCCGGACACC
+      781 GAGGTCGCGT AAAATTTGTG CTCCGATGCC ATAGTTGCGA AGATCCGGCA AGAATCCAAG
+      841 CGCCTCATTG GCTTCTACGG TGTCATAGCC TTGTTCCTGA AGCTTATAAG CTTTTAATTT
+      901 ATTGATTAAA CCGATGCCTC GTCCTTCTTG GCGCAAGTAC AGGAGCACTC CACGGCCTTC
+      961 TGCGGCAATT TGGTTCAGCG CGGCGTGCAG CTGCGGTCCG CAATCACAGC GATGAGAGCC
+     1021 AAACACGTCA CCTGTGAGAC ATTCTGAATG CACCCGGACC AATACCGGTT CTTCTCCGAA
+     1081 CGGCACATCT CCCATCACAA ATGCGACATG CTCTTTTCCA TCTACCTCAT TTGTGTATCC
+     1141 ATAAACCTTA AATGTCCCAA AATCAGTAGG CAGCGTAATG TCAACTTCAC GCTCGACAAG
+     1201 TGTTGTCAGA TTGTAACGGT ATTGAATCAA ATCCTTAATG GTGATCATTT TTAATTGATG
+     1261 CTTTTTCGCA ATTTCAATGA GCTCAGGCAC TCTCGCCATC GTTCCGTCTT CATTCATAAT
+     1321 TTCACAAATG ACGCCGGCTC CTGGAGATCC GCAAGCTTCA GCAAGATCAA CAGCAGCTTC
+     1381 TGTATGGCCC GCTCTTTTCA GGACACCTCC TTTTTTCGCA ATCAGTGGAA AAATGTGCCC
+     1441 CGGACGCTGA AAATCAGATG GCACGGATTT GCTGTCCAGC AATGCTTGAA CGGTAAAAGA
+     1501 TCTTTCTTGA GCGCTGATAC CTGTCTTCGT TTCACGATGG TCTATGCTTA CGGTAAATGC
+     1561 AGTGTGGTGA GAGTCTGTAT TATGCTCAAC CATAGGGTGA AGATCAAGCC TGTCTGCGAT
+     1621 TTCCTCACTG AGCGGCGTGC AGATCAGTCC TCTCCCATGT GTCGCCATAA AGTTAATGAC
+     1681 TTCCGGCGTT GCATGCTCGG CAAGAGCCAC AAAGTCTCCT TCATTTTCTC TGTCTTCATC
+     1741 ATCTACAACG ATGATGACTT CGCCTTTTTT TAAAGCGTCC AGTGCTTCTT CTATCGGATG
+     1801 AAACATGCAA ATCTTCCTCT CTAAAAGCCG TTTTCGCTTA AGAAGGCTTT TGTAATGGTT
+     1861 TGTTGGGTCT TATTTTCATT GGCTTTATGC AAAAATCGAT ACATATATTT TCCGATCATA
+     1921 TCGCATTCGA TATTCACTTT AGAGCCGATC GTTTTTTCTG AAAAGATCGT TTCGCTGATC
+     1981 GTATGCGGTA TTAAGGAGAT CGTCACTGTG TCTTCTGTCA GGCCGAATAT GGTTAAGCTC
+     2041 ACGCCATCCA CAGTAATTGA TCCCTTTAAA ACCAATGTTT TTGTTAATGA CGGGTCCATT
+     2101 TTTAAATCAT AGTAAACTGC GTTGCTTTTC TCTTCAATTC GTGTGATTTC CGCAGTTCCG
+     2161 TCGACATGGC CTGAGACGAA ATGGCCTCCG AAACGGCCGT TTGCCGCCAT CGCTCTTTCC
+     2221 AGATTTACTT TGCTTCCTTT TGTTAAATCA TTCAGTGACG TAGCTTTGAC TGTTTCAGGC
+     2281 ATAACATCCA CTGTGAATTG ATTTTTTGTA AAATCAGTGA CAGTCAGACA AATGCCGTTC
+     2341 ACTGCAATGC TGTCGCCAAG ATGAACATCC TCTAAAATCT TTGAGCATTT AATAGTTAAG
+     2401 GCCATTGCAT GCCCTGCTTT TTTCATGGAT TCGATTGTGC CTGTTTCTTC GATAATTCCT
+     2461 GTAAACATGG TCACCATCCT ATTCCTTTGT CGGTTTTGCC GTCAGTTTGA TATCACGGCC
+     2521 GATTTGGGTT ATATCAGTGA ATTGTAATAA GGGGACATCT TTCATTGATT GAAAACCTTC
+     2581 ACCGGAGATT AAGCTGGGAG CATGCGTTCC TCCGATTAGT TTAGGGGCAA AATAGAAGAT
+     2641 GATTTCTTGA AAACAGCCTT CTTTGACAAA GCTTCCGTGA ACAGCTGAAC CGCCTTCCAC
+     2701 ATACACCGAC ATGATGCCTT CTTCCGCTAG GATCTTCAAA ACATCAGGAA TTTGAATGCG
+     2761 CTCGGTTTCA AGTGTAAATA TGTTCACTCC GAAAGCTGAA AGCCGTTTTT TCTTTTCCTC
+     2821 GTCTGCGCGT GCCGTCGTAA AAATCCATGT CGGCGCTATT TGATCGCAAA TCACTTTAGC
+     2881 GTCCTCAGGA ATCGAGAGTA CGGTATCAAG TATGACCCGA ACCGGCTGTT TTGTTACATT
+     2941 CGGCAGTCTG CAGGTTAAGC TCGGATTGTC GGCTTTCACT GTGCCAACTC CGACTAAAAT
+     3001 GCTTTGGTGT GTTTTCCTGT ATTGCTGAGC ATCCTGTCTT GCAGCCTCTG ACGTGATCCA
+     3061 TTTGCTGTCA CCCGTGCTGG TAGCTATCTT GCCGTCAAGG CTGGCAGCCG CTTTTAGCGT
+     3121 GACGTACGGA AGGCCTGTCC TCATAAAGTG CAGAAATTTT TCATTCAGCC TCTCCGCCTG
+     3181 GTCTGCCAGG ATGCCTTCCC TTACCTCAAT GCCAGCTTCT TTCATCATGC TGATCCCTCT
+     3241 TCCAGCCACA AGCGGATTAG GATCTCTCAT CGCCACGAAC ACTCTTTTGA TACCAGAGTT
+     3301 GATAATCAAT TCTGCACATG GCGGTGTTTT TCCGTAATGG CTGCACGGTT CGAGTGTAAC
+     3361 GTAAATGTCG GCACCCTCTG CATGTGCTCC AGCCATATGG ATGGCATGAA CTTCTGCATG
+     3421 AGCTTCACCA TATTTTAAAT GGGCGCCCAT TCCGACAATT TGTCCGTCCT TTACGACAAC
+     3481 AGCGCCGACG AGCGGATTGG ATTCGGTCTG TCCTTCGCCC TGCTTCGCAA GATCTAAGGC
+     3541 CAGCTTCATA TAATACTCTT CCATTTGTTT CCCTCCCCTC TTTTGTTATT TACCGTCAAA
+     3601 AAAGCCCCGA ATTTATAAAA AATTCGGGGC TTTAGGTATT TTACGCAATA GGAAATAACA
+     3661 CTATGCATTT TTAAACATTT TGCATAGCGG CTCATCATCC TTCTCCCATC CAGACTTTCA
+     3721 CTGTCGGCTT CAGCTTAAAC TGAATCCACC GCGTGCTTAT GCACACGGGT CACGGGCTCT
+     3781 AAAGCAAATG TGCTTTACTA CCGCCGGTCG GGATTTCCAC CCTGCCCCGA AGGATACAAT
+     3841 CTTTATTCAT TTGTCCTTAT TGGTTATTAT AGCGATCCTT TTTAAAGTAC GCAATGAAAT
+     3901 AAACTTACAA TTTGAGAAAA ACAAAACATC ACCCTTCGAT CCGAAAGGTG ATGTTTT
+//
