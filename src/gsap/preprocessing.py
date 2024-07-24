@@ -8,7 +8,7 @@ __all__ = [
 ]
 
 class PreProcessor():
-    def __init__(self, home_dir, refgenome_name, rawdata_filepath, rawdata_paired2_filepath=None, refgenome_filepath=None, data_outdir='data/out/', tmpdir='data/results/tmp'):
+    def __init__(self, home_dir, refgenome_name, rawdata_filepath, rawdata_paired2_filepath=None, refgenome_filepath=None, data_outdir='data/out/', tmpdir='data/tmp'):
         self._rawdata_filepath = rawdata_filepath
         self._home_dir = home_dir
         if (rawdata_paired2_filepath != None):
@@ -88,9 +88,9 @@ class PreProcessor():
             print(e)
 
 
-    def buildBamIndex(self, inbam_filepath):
+    def buildBamIndex(self, inbam_filepath, outbai_filepath):
         try:
-            subprocess.call(['picard-tools', 'BuildBamIndex', 'INPUT=', inbam_filepath])
+            subprocess.call(['picard-tools', 'BuildBamIndex', '--INPUT', inbam_filepath, '--OUTPUT', outbai_filepath])
         except Exception as e:
             print(e)
 
