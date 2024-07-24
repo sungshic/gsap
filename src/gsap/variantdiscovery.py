@@ -8,7 +8,7 @@ __all__ = [
 ]
 
 class VariantCaller():
-    def __init__(self, home_dir, refgenome_filepath=None, inputbam_filepath=None, data_outdir='data/out/', tmpdir='data/results/tmp'):
+    def __init__(self, home_dir, refgenome_filepath=None, inputbam_filepath=None, data_outdir='data/out/', tmpdir='data/tmp'):
         if (refgenome_filepath != None):
             self._refgenome_filepath = refgenome_filepath
         if (inputbam_filepath != None):
@@ -19,7 +19,7 @@ class VariantCaller():
 
     def callVariants(self):
         try:
-            self._callVariants(self._refgenome_filepath, self._inputbam_filepath, 'raw_variants.vcf')
+            self._callVariants(self._refgenome_filepath, self._inputbam_filepath, 'raw_variants.vcf.gz')
         except Exception as e:
             print(e)
 
@@ -27,9 +27,9 @@ class VariantCaller():
         try:
             subprocess.call(['java', '-Xmx4g', '-Djava.io.tmpdir='+self._tmpdir ,'-jar', self._home_dir+'toolset/gatk-4.6.0.0/gatk-package-4.6.0.0-local.jar',
                              'HaplotypeCaller',
+                             '--ploidy', '1',
                              '-R', refgenome_filepath,
                              '-I', inputbam_filepath,
-                             '-ploidy', '1',
                              '-O', self._data_outdir + outputvcf_filename])
         except Exception as e:
             print(e)
