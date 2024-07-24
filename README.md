@@ -1,5 +1,8 @@
-# Genome Sequence Assembly Pipeline
+# GSAP: Genome Sequence Assembly-and-Annotation Pipeline
 
+This Python package automates the assembly, annotation, and variant analysis of genome sequence data from NGS short read seqeunces.
+
+---
 <p align="center">
   <a href="https://github.com/sungshic/gsap/actions/workflows/ci.yml?query=branch%3Amain">
     <img src="https://img.shields.io/github/actions/workflow/status/sungshic/gsap/ci.yml?branch=main&label=CI&logo=github&style=flat-square" alt="CI Status" >
@@ -38,12 +41,13 @@
 
 ---
 
-NGS devices generate short sequence reads collated together into raw unassembled
-sequence data formats, such as FASTQ. There are a series of steps involved in
-converting the raw data into some form ready to be consumed by other high-
-level bioinformatic analyses. This Python package is a software pipeline implementation that automates
-the assembly and the annotation of NGS sequence data from short sequence reads. The pipeline also performs
-variant analysis to annotate the assembled sequence about any SNPs and INDELs with respect to a reference genome of choice.
+## Introduction
+
+NGS devices, such as those made by Illumina, generate short read sequences that are collated into raw, unassembled sequence data formats like FASTQ. Converting this raw data into a format ready for high-level bioinformatic analyses involves multiple laborious steps that are prone to error if performed manually. This Python package implements a software pipeline designed to automate the assembly and annotation of NGS sequence data from short sequence reads. The pipeline also performs variant analysis, annotating the assembled sequence for SNPs and INDELs against a chosen reference genome.
+
+## The pipeline overview
+
+![image of the pipeline overview](https://github.com/sungshic/gsap/blob/main/docs/_static/assets/pipeline_overview1.png?raw=true)
 
 ## Installation
 
