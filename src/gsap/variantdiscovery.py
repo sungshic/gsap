@@ -17,9 +17,9 @@ class VariantCaller():
         self._tmpdir = tmpdir
         self._home_dir = home_dir
 
-    def callVariants(self):
+    def callVariants(self, outputvcf_filename='raw_variants.vcf.gz'):
         try:
-            self._callVariants(self._refgenome_filepath, self._inputbam_filepath, 'raw_variants.vcf.gz')
+            self._callVariants(self._refgenome_filepath, self._inputbam_filepath, outputvcf_filename)
         except Exception as e:
             print(e)
 
