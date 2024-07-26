@@ -24,7 +24,7 @@ class SNPSetManager:
 
     # snp_list is a list of tuples (snp_idx, snp_details)
     def addSNPs(self, snp_list):
-        for (snp_idx, snp_details in snp_list):
+        for snp_idx, snp_details in snp_list:
             self._snp_set.add(snp_idx)
             if (snp_idx not in self._snp_lut):
                 self._snp_lut[snp_idx] = [] # initialize
@@ -116,8 +116,8 @@ class PopulationManager:
 #             if random.random() > mut_prob:
 #                 continue
 #             ind[idx] = (ind[idx][0], self._p_gen.generatePermutation(1)[0])
-        c_state_idx_list = list(zip(*ind)[0])
-        for (idx in range(self._snp_m._max_snp_idx+1)):
+        c_state_idx_list = list(next(zip(*ind)))
+        for idx in range(self._snp_m._max_snp_idx+1):
             if (random.random() > mut_prob):
                 continue
             if (idx in c_state_idx_list):
@@ -126,7 +126,7 @@ class PopulationManager:
             else:
                 ind.append((idx, self._p_gen.generatePermutation(1)[0]))
         ind.sort(key=itemgetter(0))
-        for (idx in sorted(range(len(ind)), reverse=True)):
+        for idx in sorted(range(len(ind)), reverse=True):
             if (ind[idx][1] == 3): # unconstrained
                 ind.pop(idx) # remove from the pattern
 
@@ -152,8 +152,8 @@ class PopulationManager:
         #fitness = sum(ind_pattern) # interim mock fitness calculation
         totalscore = 0
         ind_set = set(individual)
-        for (answerkeys in self._snp_m._answersheet):
-            for (answerkey, score in answerkeys):
+        for answerkeys in self._snp_m._answersheet:
+            for answerkey, score in answerkeys:
                 answerset = set(answerkey)
                 if (answerset.intersection(ind_set) == answerset):
                     totalscore += score
@@ -172,8 +172,8 @@ class PopulationManager:
         #fitness = sum(ind_pattern) # interim mock fitness calculation
         totalscore = 0
         ind_set = set(individual)
-        for (answerkeys in self._snp_m._answersheet):
-            for (answerkey, score in answerkeys):
+        for answerkeys in self._snp_m._answersheet:
+            for answerkey, score in answerkeys:
                 answerset = set(answerkey)
                 if (answerset.intersection(ind_set) == answerset):
                     print(answerset)
@@ -185,7 +185,7 @@ class PopulationManager:
 
     def getIntersectionOfAnswers(self, population):
         final_set = None
-        for (ind in population):
+        for ind in population:
             if (not final_set):
                 final_set = set(ind)
             else:
@@ -195,9 +195,9 @@ class PopulationManager:
 
     def getCumulutiveFitnessOfAnswers(self, population):
         cum_fitness = {}
-        for (ind in population):
+        for ind in population:
             cur_fitness_val = ind.fitness.values[0]
-            for (idx in range(len(ind))):
+            for idx in range(len(ind)):
                 answer_tuple = ind[idx]
                 if (cum_fitness.has_key(answer_tuple)):
                     cum_fitness[answer_tuple] += cur_fitness_val
@@ -215,7 +215,7 @@ class PopulationManager:
         #ind_uuids, ind_details = zip(*choices)
         total = 0
         cum_weights = []
-        for (ind in population): #ind_details['fitness']:
+        for ind in population: #ind_details['fitness']:
             total += ind.fitness.values[0]
             cum_weights.append(total)
         return cum_weights
@@ -280,7 +280,7 @@ class PopulationManager:
     # (3,4)
     def genRangesFromList(self, idx_list, step):
         cur_mark = (0, idx_list[0])
-        for (idx_idx, idx in enumerate(idx_list)):
+        for idx_idx, idx in enumerate(idx_list):
             if (idx - cur_mark[1] >= step):
                 yield (cur_mark[0], idx_idx)
                 cur_mark = (idx_idx, idx)
@@ -348,8 +348,8 @@ class PopulationManager:
         ind2.sort(key=itemgetter(0))
 
         # get the two state_idx sets
-        ind1_state_idx_set = set(zip(*ind1)[0])
-        ind2_state_idx_set = set(zip(*ind2)[0])
+        ind1_state_idx_set = set(next(zip(*ind1)))
+        ind2_state_idx_set = set(next(zip(*ind2)))
 #         common_state_idx = ind1_state_idx_set.intersection(ind2_state_idx_set)
 
         # using the homology of smallest unconstrained regions enclosing the constrained sets
@@ -372,7 +372,7 @@ class PopulationManager:
 
         idx_tuple_list = list(self.genRangesFromList(uc_state_idx_list, step=20))
 
-        for (idx_tuple in idx_tuple_list):
+        for idx_tuple in idx_tuple_list:
             #print 'idx_tuple: ' + str(idx_tuple)
             #import ipdb; ipdb.set_trace()
             if (random.random() > cx_prob):
@@ -395,12 +395,12 @@ class PopulationManager:
 #                     crossover_range2 = ind2[min(ind2_c_state_idxs):max(ind2_c_state_idxs)+1]
                     ind2_cx_idxs = [idx_idx for idx_idx, entry in enumerate(ind2) if entry[0] in ind2_c_state_idxs]
                 ind1_cx_idxs.sort(reverse=True)
-                for (cx_candidate_idx in ind1_cx_idxs):
+                for cx_candidate_idx in ind1_cx_idxs:
                     cx_candidate = ind1.pop(cx_candidate_idx)
                     ind2.append(cx_candidate)
 
                 ind2_cx_idxs.sort(reverse=True)
-                for (cx_candidate_idx in ind2_cx_idxs):
+                for cx_candidate_idx in ind2_cx_idxs:
                     cx_candidate = ind2.pop(cx_candidate_idx)
                     ind1.append(cx_candidate)
                 
@@ -456,7 +456,7 @@ class PermPatternGenerator:
 
         # initialize permutation luts
         self._lut[unit_len] = np.array(list(itertools.product(self._state_list, repeat=unit_len)))
-        for (short_split in range(1,unit_len)):
+        for short_split in range(1,unit_len):
             self._lut[short_split] = np.array(list(itertools.product(self._state_list, repeat=short_split)))
         
 
@@ -467,7 +467,7 @@ class PermPatternGenerator:
         last_idx = split_idx_list[-1] # get the last idx in the list
         unit_lut = self._lut[self._unit_len]
         unit_lut_len = len(unit_lut)
-        for (start_idx in split_idx_list):
+        for start_idx in split_idx_list:
             if (start_idx != last_idx):
                 rand_idx = random.randint(0, unit_lut_len-1)
                 unit_pattern = unit_lut[rand_idx].copy()
