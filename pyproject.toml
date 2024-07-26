@@ -24,6 +24,15 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.11"
+deap = "1.4.1"
+numpy = "1.26.4"
+scipy = "1.14.0"
+fcsparser = "0.2.8"
+flowcytometrytools = "0.5.1"
+matplotlib = "3.9.1"
+biopython = "1.84"
+pyvcf3 = "1.0.3"
+sh = "^2.0.7"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
