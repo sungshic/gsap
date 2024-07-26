@@ -47,9 +47,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        run: |
-          apt-get update
-          apt-get install -y -q git git-lfs unzip virtualenv default-jre npm seqtk samtools picard-tools bowtie2 bcftools fastqc trimmomatic
+        run: apt-get install -y -q git git-lfs unzip virtualenv default-jre npm seqtk samtools picard-tools bowtie2 bcftools fastqc trimmomatic
       - name: Install poetry
         run: pipx install poetry
       - name: Set up Python
