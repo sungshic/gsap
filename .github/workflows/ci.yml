@@ -58,18 +58,17 @@ jobs:
         run: poetry install
         shell: bash
       - name: Download pytest data
-        working-directory: ${GITHUB_WORKSPACE}/tests/data/test_ref_data
         run: |
-          curl -sSL 'https://baf8nq.db.files.1drv.com/y4mJy3MsAOCumWtOK6emKamT2i8gUs2ClIhd2TwRt0fsHuSJ78u6PhD27Xu7gloT2NDNm4_N7GUj93ossPSlsRiv9w3JREa9v5hEic3vkKZLtvd4nS4MADjgtPgIJW_4trFIMHCGcQg6YHoN8kNjzVYflDYmFSQu5zV5ZMQWmbbNntErKhVKo5BDXVPNPVACboAze24WU-WMcbH6jNBwLdeMw' -o test_data_bundle.tar.gz
-          tar -xzf test_data_bundle.tar.gz -C ${GITHUB_WORKSPACE}/tests/data/test_ref_data/
+          curl -sSL 'https://baf8nq.db.files.1drv.com/y4mJy3MsAOCumWtOK6emKamT2i8gUs2ClIhd2TwRt0fsHuSJ78u6PhD27Xu7gloT2NDNm4_N7GUj93ossPSlsRiv9w3JREa9v5hEic3vkKZLtvd4nS4MADjgtPgIJW_4trFIMHCGcQg6YHoN8kNjzVYflDYmFSQu5zV5ZMQWmbbNntErKhVKo5BDXVPNPVACboAze24WU-WMcbH6jNBwLdeMw' -o "${GITHUB_WORKSPACE}"/test_data_bundle.tar.gz
+          tar -xzf "${GITHUB_WORKSPACE}"/test_data_bundle.tar.gz -C "${GITHUB_WORKSPACE}"/tests/data/test_ref_data/
       - name: Download GATK and unzip it under the toolset directory
         run: |
-          curl -sSL https://github.com/broadinstitute/gatk/releases/download/4.6.0.0/gatk-4.6.0.0.zip -o /tmp/gatk-4.6.0.0.zip
-          unzip -d ${GITHUB_WORKSPACE}/src/gsap/toolset/ /tmp/gatk-4.6.0.0.zip 
+          curl -sSL https://github.com/broadinstitute/gatk/releases/download/4.6.0.0/gatk-4.6.0.0.zip -o "${GITHUB_WORKSPACE}"/gatk-4.6.0.0.zip
+          unzip -d "${GITHUB_WORKSPACE}"/src/gsap/toolset/ "${GITHUB_WORKSPACE}"/gatk-4.6.0.0.zip 
       - name: Download spades assembler and unzip it under the toolset directory
         run: |
-          curl -sSL https://github.com/ablab/spades/releases/download/v4.0.0/SPAdes-4.0.0-Linux.tar.gz -o /tmp/SPAdes-4.0.0-Linux.tar.gz
-          tar -xzf /tmp/SPAdes-4.0.0-Linux.tar.gz -C ${GITHUB_WORKSPACE}/src/gsap/toolset/
+          curl -sSL https://github.com/ablab/spades/releases/download/v4.0.0/SPAdes-4.0.0-Linux.tar.gz -o "${GITHUB_WORKSPACE}"/SPAdes-4.0.0-Linux.tar.gz
+          tar -xzf "${GITHUB_WORKSPACE}"/SPAdes-4.0.0-Linux.tar.gz -C "${GITHUB_WORKSPACE}"/src/gsap/toolset/
           #- name: Test with Pytest
           #  run: poetry run pytest
           #  shell: bash
