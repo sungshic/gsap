@@ -8,7 +8,40 @@ __all__ = [
 ]
 
 class PreProcessor():
-    def __init__(self, home_dir, refgenome_name, rawdata_filepath, rawdata_paired2_filepath=None, refgenome_filepath=None, data_outdir='data/out/', tmpdir='data/tmp'):
+    """This class is used to manage a variety of toolset functions employed by GSAP 
+       to accomplish various sequence assembly-related tasks. The tasks defined as 
+       class methods utilize external functions implemented in Python and Java, 
+       as well as other bioinformatic tools distributed as Linux command line binaries. 
+       This class offers an easy-to-understand abstraction of key data transformation steps 
+       necessary for assembling a genome sequence from raw short read sequences."""
+
+    def __init__(self, home_dir, refgenome_name, rawdata_filepath, rawdata_paired2_filepath=None, 
+                 refgenome_filepath=None, data_outdir='data/out/', tmpdir='data/tmp'):
+        """Constructor to initialise key input data for GSAP's sequence assembly operations
+
+        ### Input parameters
+        
+        home_dir : str
+            the directory location of the source files 
+        refgenome_name : str
+            name of a reference genome
+        rawdata_filepath : str
+            the file path of a gzipped FASTQ file containing forward strands of 
+            raw paired-end short read sequences from NGS devices like Illumina.
+            In case of rawdata_paired2_filepath being None, this parameter is for
+            a single-read sequence file in gzipped FASTQ format. 
+        rawdata_paired2_filepath : str | None
+            the file path of a gzipped FASTQ file containing reverse strands of
+            raw paired-end short read sequences from NGS devices like Illumina 
+        refgenome_filepath : str
+            the file path of the reference genome in FASTA format. 
+        data_outdir : str (optional)
+            the directory where intermediary files, which may or may not persist 
+            after the end of assembly, are stored during the assembly operation. 
+        tmpdir : str (optional)
+            the directory where intermediary transient files, if any, are stored 
+            during the assembly operation. [Note: currently not in use]
+        """
         self._rawdata_filepath = rawdata_filepath
         self._home_dir = home_dir
         if (rawdata_paired2_filepath != None):
@@ -65,8 +98,6 @@ class PreProcessor():
             subprocess.call(['picard-tools', 'SortSam', 'INPUT=', inbam_filepath, 'OUTPUT=', self._data_outdir+outbam_filename, 'SORT_ORDER=coordinate']) #, sort_order])
         except Exception as e:
             print(e)
-
-
 
     def markDuplicates(self, inbam_filepath, outbam_filename, outmetrics_filename):
         try:
