@@ -7,7 +7,7 @@ from deap import tools
 
 import uuid
 
-from gsap.sim import SNPSetManager, PopulationManager
+from gsap.sim.idea_insilico import SNPSetManager, PopulationManager
     
 snp_m = SNPSetManager(2000)
 #snp_m.addSNPs([(1940, 'mutS'), (1954, 'ribD'), (1000, 'trpC'), (1999, 'trpA'), (1995, 'yheD')])
@@ -38,7 +38,7 @@ toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
 toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("clone", deepcopy)
 
-def main():
+def main(): #{
     #random.seed(64)
     
     pop = toolbox.population(n=3000)
@@ -54,7 +54,7 @@ def main():
     print("  Evaluated %i individuals" % len(pop)) 
 
     # evolution begins
-    for (g in range(NGEN)):
+    for g in range(NGEN): #{
         print("#### Generation %i ####" % g)
         
         # selection
@@ -67,7 +67,7 @@ def main():
 
         # crossover in the current generation
         cum_weights = pm.getWeightedCDF(offsprings)
-        for (i in range(len(offsprings)/2)):
+        for i in range(int(len(offsprings)/2)):
             # pick a random offspring weighted by fitness
             # pick a second random offspring unweighted
             # crossover
@@ -76,7 +76,7 @@ def main():
             if (ind1 and ind2):
                 pm.crossoverSNPAlleles(ind1, ind2, CXPB)
         # mutagenesis
-        for (offspring in offsprings):
+        for offspring in offsprings:
             pm.mutateIndividual(offspring, MUTPB)
 
         # evaluate the individuals with an invalid fitness
@@ -98,10 +98,11 @@ def main():
         print("  Max %s" % max(fits))
         print("  Avg %s" % mean)
         print("  Std %s" % std)
+    #}
 
     print("-- End of (successful) evolution --")
     best_ind = tools.selBest(pop, 1)[0]
-    for (history in pop):
+    for history in pop:
         pm._evo_history.append(history)
     pm._best_ind = best_ind
     pm._final_pop = pop
@@ -122,6 +123,7 @@ def main():
 #                         halloffame=hof)
 # 
 #     return pop, stats, hof
+#}
 
 if (__name__ == "__main__"):
     main()
