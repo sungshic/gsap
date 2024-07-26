@@ -57,11 +57,13 @@ jobs:
       - name: Install Dependencies
         run: poetry install
         shell: bash
-      - name: Download pytest data
-        run: |
-          curl -sSL 'https://baf8nq.db.files.1drv.com/y4mJy3MsAOCumWtOK6emKamT2i8gUs2ClIhd2TwRt0fsHuSJ78u6PhD27Xu7gloT2NDNm4_N7GUj93ossPSlsRiv9w3JREa9v5hEic3vkKZLtvd4nS4MADjgtPgIJW_4trFIMHCGcQg6YHoN8kNjzVYflDYmFSQu5zV5ZMQWmbbNntErKhVKo5BDXVPNPVACboAze24WU-WMcbH6jNBwLdeMw' -o "${GITHUB_WORKSPACE}"/test_data_bundle.tar.gz
-          mkdir -p "${GITHUB_WORKSPACE}"/tests/data/test_ref_data
-          tar -xzf "${GITHUB_WORKSPACE}"/test_data_bundle.tar.gz -C "${GITHUB_WORKSPACE}"/tests/data/test_ref_data/
+      - name: Download pytest data by pulling from git lfs
+        run: sudo git lfs pull
+          #- name: Download pytest data
+          #  run: |
+          #    curl -sSL 'https://baf8nq.db.files.1drv.com/y4mJy3MsAOCumWtOK6emKamT2i8gUs2ClIhd2TwRt0fsHuSJ78u6PhD27Xu7gloT2NDNm4_N7GUj93ossPSlsRiv9w3JREa9v5hEic3vkKZLtvd4nS4MADjgtPgIJW_4trFIMHCGcQg6YHoN8kNjzVYflDYmFSQu5zV5ZMQWmbbNntErKhVKo5BDXVPNPVACboAze24WU-WMcbH6jNBwLdeMw' -o "${GITHUB_WORKSPACE}"/test_data_bundle.tar.gz
+          #    mkdir -p "${GITHUB_WORKSPACE}"/tests/data/test_ref_data
+          #    tar -xzf "${GITHUB_WORKSPACE}"/test_data_bundle.tar.gz -C "${GITHUB_WORKSPACE}"/tests/data/test_ref_data/
       - name: Download GATK and unzip it under the toolset directory
         run: |
           curl -sSL https://github.com/broadinstitute/gatk/releases/download/4.6.0.0/gatk-4.6.0.0.zip -o "${GITHUB_WORKSPACE}"/gatk-4.6.0.0.zip

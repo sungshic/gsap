@@ -1,0 +1,7 @@
+- "left reads":
+  - "/gsap/tests/data/test_ref_data/out_for_paired.fq.gz"
+  "number": !!int "1"
+  "orientation": "fr"
+  "right reads":
+  - "/gsap/tests/data/test_ref_data/out_rev_paired.fq.gz"
+  "type": "paired-end"
