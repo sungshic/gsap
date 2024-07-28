@@ -3,6 +3,7 @@
 This Python package automates the assembly, annotation, and variant analysis of genome sequence data from NGS short read seqeunces.
 
 ---
+
 <p align="center">
   <a href="https://github.com/sungshic/gsap/actions/workflows/ci.yml?query=branch%3Amain">
     <img src="https://img.shields.io/github/actions/workflow/status/sungshic/gsap/ci.yml?branch=main&label=CI&logo=github&style=flat-square" alt="CI Status" >
@@ -45,15 +46,29 @@ This Python package automates the assembly, annotation, and variant analysis of 
 
 NGS devices, such as those made by Illumina, generate short read sequences that are collated into raw, unassembled sequence data formats like FASTQ. Converting this raw data into a format ready for high-level bioinformatic analyses involves multiple laborious steps that are prone to error if performed manually. This Python package implements a software pipeline designed to automate the assembly and annotation of NGS sequence data from short sequence reads. The pipeline also performs variant analysis, annotating the assembled sequence for SNPs and INDELs against a chosen reference genome.
 
-## The pipeline overview
+## Overview of the Pipeline
+
+The pipeline consists of four main parts: sequence assembly, sequence pre-processing, variant analysis, and sequence annotation.
+
+### Sequence Assembly
 
 ![image of the pipeline overview](https://github.com/sungshic/gsap/blob/main/docs/_static/assets/pipeline_overview1.png?raw=true)
+
+###
 
 ## Installation
 
 Install this via pip (or your favourite package manager):
 
 `pip install gsap`
+
+## Evolving Research Computing: From Legacy Code to Modern Software Engineering Practices in research
+
+The initial code base for this project dates back to around 2015. The code here was manually forked and migrated from <a href="https://bitbucket.org/sungshic/genomeassemblypipeline" target="_blank">this Bitbucket repository</a>. It was originally a rudimentary implementation of a genome assembly pipeline written in Python 2.7, now refactored in Python 3.11 by adopting popular modern practices in software engineering, including meticulous documentation, containerisation, test-driven development, and continuous integration. The primary purpose of the initial code base was not to achieve high software engineering standards but to quickly assemble sequence samples of about 20 bacterial strains being studied at the Centre for Bacterial Cell Biology, Newcastle University.
+
+Over the past decade, computer science has made inroads into many research fields traditionally not oriented toward computing. The fields of biological science, systems biology, and synthetic biology, in particular, have seen a significant adoption of research computing practices. Yet, software in these fields is often considered one-off disposable-ware, used primarily to support research output in the form of publications.
+
+Another purpose of the GSAP repository is to showcase the need for adopting agile software engineering practices in research computing. These practices make it easier to develop, maintain, and distribute software, ultimately fostering long-term computational reproducibility in scientific research.
 
 ## Contributors ✨
 

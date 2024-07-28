@@ -33,6 +33,9 @@ matplotlib = "3.9.1"
 biopython = "1.84"
 pyvcf3 = "1.0.3"
 sh = "^2.0.7"
+ipdb = "^0.13.13"
+pre-commit = "^3.7.1"
+pysam = "^0.22.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
@@ -105,6 +108,7 @@ ignore = [
     "D104", # Missing docstring in public package
     "D107", # Missing docstring in `__init__`
     "D401", # First line of docstring should be in imperative mood
+    "S603", # `subprocess` call: check for execution of untrusted input
 ]
 select = [
     "B",   # flake8-bugbear

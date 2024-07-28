@@ -1,22 +1,18 @@
-__version__ = "0.1.0"
-
-__version_tuple__ = version_tuple = tuple(__version__.split("."))
-
+from gsap.annotateseq import SeqAnnotator
 from gsap.preprocessing import (
     PreProcessor,
 )
-
+from gsap.tuxedpreprocessing import (
+    TPreProcessor,
+)
 from gsap.variantdiscovery import (
     VariantCaller,
 )
 
-from gsap.tuxedpreprocessing import (
-    TPreProcessor,
-)
+__version__ = "0.1.0"
 
-from gsap.annotateseq import (
-    SeqAnnotator
-)
+__version_tuple__ = version_tuple = tuple(__version__.split("."))
+
 
 __all__ = [
     "PreProcessor",

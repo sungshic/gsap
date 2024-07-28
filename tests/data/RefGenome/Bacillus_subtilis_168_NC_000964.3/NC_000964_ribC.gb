@@ -14,8 +14,8 @@ FEATURES             Location/Qualifiers
                      /function="16.2: Construct biomass (Anabolism)"
                      /function="16.6: Maintain"
                      /inference="ab initio prediction:AMIGene:2.0"
-                     /note="catalyzes isomerization of specific uridines in  
-                     RNAto pseudouridine; responsible for residues in T loops  
+                     /note="catalyzes isomerization of specific uridines in
+                     RNAto pseudouridine; responsible for residues in T loops
                      of many tRNAs"
                      /codon_start=1
                      /transl_table=11
@@ -77,12 +77,12 @@ FEATURES             Location/Qualifiers
                      /EC_number="2.7.7.2"
                      /function="16.2: Construct biomass (Anabolism)"
                      /inference="ab initio prediction:AMIGene:2.0"
-                     /note="catalyzes the formation of FMN from riboflavin and 
-                     the formation of FAD from FMN; in Bacillus the ribC gene  
+                     /note="catalyzes the formation of FMN from riboflavin and
+                     the formation of FAD from FMN; in Bacillus the ribC gene
                      has both flavokinase and FAD synthetase activities"
                      /codon_start=1
                      /transl_table=11
-                     /product="bifunctional riboflavin kinase/FMN  
+                     /product="bifunctional riboflavin kinase/FMN
                      adenylyltransferase"
                      /protein_id="NP_389549.1"
                      /db_xref="GI:16078730"

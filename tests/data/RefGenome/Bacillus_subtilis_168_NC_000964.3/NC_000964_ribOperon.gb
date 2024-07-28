@@ -15,18 +15,18 @@ FEATURES             Location/Qualifiers
                      /EC_number="2.5.1.9"
                      /function="16.2: Construct biomass (Anabolism)"
                      /inference="ab initio prediction:AMIGene:2.0"
-                     /note="RibE; 6,7-diimethyl-8-ribityllumazine synthase;  
-                     DMRL synthase; lumazine synthase; beta subunit of  
-                     riboflavin synthase; condenses  
-                     5-amino-6-(1'-D)-ribityl-amino-2,4(1H,3H)-pyrimidinedione 
-                      with L-3,4-dihydrohy-2-butanone-4-phosphate to generate 
-                     6, 6-dimethyl-8-lumazine (DMRL); riboflavin synthase then 
-                      uses 2 molecules of DMRL to produce riboflavin (vitamin  
-                     B12); involved in the last steps of riboflavin  
-                     biosynthesis; forms a 60mer (icosahedral shell) in both  
-                     Bacillus subtilis and Escherichia coli; in Bacillus  
-                     subtilis this 60mer is associated with the riboflavin  
-                     synthase subunit (alpha) while in Escherichia coli it is  
+                     /note="RibE; 6,7-diimethyl-8-ribityllumazine synthase;
+                     DMRL synthase; lumazine synthase; beta subunit of
+                     riboflavin synthase; condenses
+                     5-amino-6-(1'-D)-ribityl-amino-2,4(1H,3H)-pyrimidinedione
+                      with L-3,4-dihydrohy-2-butanone-4-phosphate to generate
+                     6, 6-dimethyl-8-lumazine (DMRL); riboflavin synthase then
+                      uses 2 molecules of DMRL to produce riboflavin (vitamin
+                     B12); involved in the last steps of riboflavin
+                     biosynthesis; forms a 60mer (icosahedral shell) in both
+                     Bacillus subtilis and Escherichia coli; in Bacillus
+                     subtilis this 60mer is associated with the riboflavin
+                     synthase subunit (alpha) while in Escherichia coli it is
                      not"
                      /codon_start=1
                      /transl_table=11
@@ -47,15 +47,15 @@ FEATURES             Location/Qualifiers
                      /EC_number="3.5.4.25"
                      /function="16.2: Construct biomass (Anabolism)"
                      /inference="ab initio prediction:AMIGene:2.0"
-                     /note="bifunctional enzyme DHBP synthase/GTP  
-                     cyclohydrolase II; functions in riboflavin synthesis;  
-                     converts GTP to 2, 
-                     5-diamino-6-hydroxy-4-(5-phosphoribosylamino)pyrimidine;  
-                     converts ribulose 5-phopshate to 3,4-dihydroxy-2-butanone 
+                     /note="bifunctional enzyme DHBP synthase/GTP
+                     cyclohydrolase II; functions in riboflavin synthesis;
+                     converts GTP to 2,
+                     5-diamino-6-hydroxy-4-(5-phosphoribosylamino)pyrimidine;
+                     converts ribulose 5-phopshate to 3,4-dihydroxy-2-butanone
                       4-phosphate"
                      /codon_start=1
                      /transl_table=11
-                     /product="bifunctional 3,4-dihydroxy-2-butanone  
+                     /product="bifunctional 3,4-dihydroxy-2-butanone
                      4-phosphate synthase/GTP cyclohydrolase II protein"
                      /protein_id="NP_390207.1"
                      /db_xref="GI:16079383"
@@ -78,7 +78,7 @@ FEATURES             Location/Qualifiers
                      /EC_number="2.5.1.9"
                      /function="16.2: Construct biomass (Anabolism)"
                      /inference="ab initio prediction:AMIGene:2.0"
-                     /note="catalyzes the formation of riboflavin from 6, 
+                     /note="catalyzes the formation of riboflavin from 6,
                      7-dimethyl-8-(1-D-ribityl)lumazine"
                      /codon_start=1
                      /transl_table=11
@@ -101,14 +101,14 @@ FEATURES             Location/Qualifiers
                      /EC_number="3.5.4.26"
                      /function="16.2: Construct biomass (Anabolism)"
                      /inference="ab initio prediction:AMIGene:2.0"
-                     /note="Evidence 1a: Function experimentally demonstrated  
-                     in the studied strain; PubMedId: 12456892, 18986985,  
+                     /note="Evidence 1a: Function experimentally demonstrated
+                     in the studied strain; PubMedId: 12456892, 18986985,
                      9068650; Product type e: enzyme"
                      /codon_start=1
                      /transl_table=11
-                     /product="bifunctional  
-                     diaminohydroxyphosphoribosylaminopyrimidine  
-                     deaminase/5-amino-6-(5-phosphoribosylamino) uracil  
+                     /product="bifunctional
+                     diaminohydroxyphosphoribosylaminopyrimidine
+                     deaminase/5-amino-6-(5-phosphoribosylamino) uracil
                      reductase"
                      /protein_id="NP_390209.1"
                      /db_xref="GI:16079385"

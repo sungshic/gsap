@@ -15,7 +15,7 @@ sed /^#/d $1| while read line;
 do
 #set variables that vary between detected polymorphisms
 
-length_of_feature=$(echo $line|sed 's/.*LEN=\([^;]*\);.*/\1/')	
+length_of_feature=$(echo $line|sed 's/.*LEN=\([^;]*\);.*/\1/')
 polymorphism_type=$(echo $line|sed 's/.*TYPE=\([^;]*\);.*/\1/')
 start_pos=$(echo $line|awk '{FS="\t"; OFS="\t";print $2}')
 end_pos=$(($start_pos+$length_of_feature-1))

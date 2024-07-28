@@ -5,6 +5,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# GSAP
+src/gsap/toolset/SPAdes-4.0.0-Linux/
+src/gsap/toolset/gatk-4.6.0.0/
+
 # C extensions
 *.so
 
