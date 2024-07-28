@@ -1,6 +1,6 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
-exclude: "CHANGELOG.md|.copier-answers.yml|.all-contributorsrc|project|src/gsap/toolset|tests/data/RefGenome|tuxedpreprocessing.py|bam2fasta.py"
+exclude: "CHANGELOG.md|.copier-answers.yml|.all-contributorsrc|project|src/gsap/toolset|tests/data/RefGenome|tuxedpreprocessing.py|bam2fasta.py|idea_insilico.py|tests|poetry.lock"
 default_stages: [commit]
 
 ci:

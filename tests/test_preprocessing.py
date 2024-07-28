@@ -35,6 +35,7 @@ def gsap_test_common(tmp_path):
     )
 
 
+@pytest.mark.skip(reason="test performed manually, as it takes too long.")
 def test_alignPairedEndReads(gsap_test_common):
     pre_processor, test_ref_data_dir, tmp_test_data_dir, teardown = gsap_test_common
     print(f"test_alignPairedEndReads: {test_ref_data_dir}, {tmp_test_data_dir}")

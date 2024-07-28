@@ -1,3 +1,9 @@
+"""
+Implements a module for in silico simulation exploring genome-wide mutagenesis.
+
+Author: Sunny Park
+
+"""
 import itertools
 import random
 from bisect import bisect
@@ -13,17 +19,20 @@ __all__ = [
 
 
 class SNPSetManager:
+    """manages a set of SNPs being accumulated."""
     _snp_set = None
     _snp_lut = None
     _max_snp_idx = None
+    _answersheet = None
 
-    def __init__(self, max_snp_idx):
+    def __init__(self, max_snp_idx : int):
+        """Constructor method."""
         self._snp_set = set()  # initialize
         self._snp_lut = {}  # dict initialize
         self._max_snp_idx = max_snp_idx
 
     # snp_list is a list of tuples (snp_idx, snp_details)
-    def addSNPs(self, snp_list):
+    def addSNPs(self, snp_list : list[int, str]) -> None:
         for snp_idx, snp_details in snp_list:
             self._snp_set.add(snp_idx)
             if snp_idx not in self._snp_lut:
@@ -32,11 +41,12 @@ class SNPSetManager:
                 snp_details
             )  # add the details to the list for snp_idx
 
-    def getSNPSetAsASortedList(self):
+    def getSNPSetAsASortedList(self) -> list[int]:
         return sorted(list(self._snp_set))
 
 
 class PopulationManager:
+    """manages the population state in the simulation."""
     _ind_lut = None
     _gen_lut = None
     _p_gen = None
@@ -46,21 +56,24 @@ class PopulationManager:
     _snp_m = None
     _final_pop = None
 
-    def __init__(self, state_list, unit_len, snp_m):
+    def __init__(self,
+                 state_list : list[int],
+                 unit_len : int,
+                 snp_m : SNPSetManager):
         self._ind_lut = []  # a list of generations of populations
         self._gen_lut = {}  # a lut of UUID to a generation to which the individual belongs
         self._evo_history = []
         self._p_gen = PermPatternGenerator(state_list, unit_len)
         self._snp_m = snp_m
 
-    def initializeGeneration(self, generation):
+    def initializeGeneration(self, generation : int) -> None:
         if len(self._ind_lut) <= generation:  # if the generation is never seen before
             self._ind_lut.append({})  # initialize the dictionary for that generation
 
-    def incrementGeneration(self):
+    def incrementGeneration(self) -> None:
         self._cur_gen_no += 1
 
-    def generateIndividual(self, snp_idx_list):  # , generation=None):
+    def generateIndividual(self, snp_idx_list : list[int]) -> list[list[int]]:  # , generation=None):
         #         if generation:
         #             gen_no = generation
         #         else:
@@ -100,7 +113,7 @@ class PopulationManager:
     #         #self._ind_lut[generation][ind_key.hex]['fitness'] = None
     #         return zip(snp_idx_list, ind_pattern)
     #
-    def getIndividual(self, ind_hexkey):
+    def getIndividual(self, ind_hexkey : str):
         gen_no = self._gen_lut[ind_hexkey]
         return self._ind_lut[gen_no][ind_hexkey]
 
@@ -146,9 +159,11 @@ class PopulationManager:
         pop = self.getPopulation(gen_no)
 
     # fitness function
-    # this function evaluates individuals against a score board lookup in the simulation study
-    # in the Dual-EA trial, a call to FBA will need to be used instead.
-    def evaluateFitness(self, individual):
+    def evaluateFitness(self, individual : list[int, list[int]]) -> list[int]:
+        """evaluates individuals against a score board lookup in the simulation study.
+            
+        in the Dual-EA trial, a call to FBA will need to be used instead.
+        """
         # import ipdb; ipdb.set_trace()
         # ind_hexkey = individual[-1] # to retrieve the last hex key assigned for the individual
         # ind_data = pm.getIndividual(ind_hexkey)
@@ -169,7 +184,8 @@ class PopulationManager:
         individual.fitness.values = (totalscore,)
         return (totalscore,)
 
-    def printEvolvedAnswers(self, individual):
+    def printEvolvedAnswers(self, individual : list[int]):
+        """print the current state of an individual."""
         # import ipdb; ipdb.set_trace()
         # ind_hexkey = individual[-1] # to retrieve the last hex key assigned for the individual
         # ind_data = pm.getIndividual(ind_hexkey)
@@ -189,7 +205,8 @@ class PopulationManager:
         # ind_data['fitness'] = fitness
         # individual.fitness.values = (totalscore,)
 
-    def getIntersectionOfAnswers(self, population):
+    def getIntersectionOfAnswers(self, population : list[list[int]]) -> list[int]:
+        """gets the intersection of solutions by individuals in the population."""
         final_set = None
         for ind in population:
             if not final_set:
@@ -199,7 +216,8 @@ class PopulationManager:
 
         return final_set
 
-    def getCumulutiveFitnessOfAnswers(self, population):
+    def getCumulutiveFitnessOfAnswers(self, population : list[list[int]]) -> list[int]:
+        """gets the cumulutive fitness scroes of solutions in the population."""
         cum_fitness = {}
         for ind in population:
             cur_fitness_val = ind.fitness.values[0]
@@ -214,7 +232,8 @@ class PopulationManager:
         ordered_answer_list.sort(key=itemgetter(1), reverse=True)
         return ordered_answer_list
 
-    def getWeightedCDF(self, population):  # gen_no):
+    def getWeightedCDF(self, population : list[list[int]]) -> list[int]:  # gen_no):
+        """gets weighted cumulutive distribution of fitness scores in the population."""
         # choices = self.getPopulation(gen_no).items()
         # ind_uuids, ind_details = zip(*choices)
         total = 0
@@ -224,7 +243,8 @@ class PopulationManager:
             cum_weights.append(total)
         return cum_weights
 
-    def getWeightedRandomChoice(self, population, cum_weights=None):  # choices):
+    def getWeightedRandomChoice(self, population : list[list[int]], cum_weights : list[int]=None) -> list[int, list[int]]:  # choices):
+        """gets weighted random selection of a solution in the population."""
         if not cum_weights:
             cum_weights = self.getWeightedCDF(population)
 
@@ -336,7 +356,7 @@ class PopulationManager:
 
         Execute a two points crossover with copy on the input individuals. The
         copy is required because the slicing in numpy returns a view of the data,
-        which leads to a self overwritting in the swap operation. It prevents
+        which leads to a self overwriting in the swap operation. It prevents
         ::
 
             >>> import numpy

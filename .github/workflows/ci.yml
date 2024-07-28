@@ -87,9 +87,9 @@ jobs:
         run: |
           curl -sSL https://github.com/ablab/spades/releases/download/v4.0.0/SPAdes-4.0.0-Linux.tar.gz -o "${GITHUB_WORKSPACE}"/SPAdes-4.0.0-Linux.tar.gz
           tar -xzf "${GITHUB_WORKSPACE}"/SPAdes-4.0.0-Linux.tar.gz -C "${GITHUB_WORKSPACE}"/src/gsap/toolset/
-          #- name: Test with Pytest
-          #  run: poetry run pytest
-          #  shell: bash
+      - name: Test with Pytest
+        run: poetry run pytest
+        shell: bash
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:

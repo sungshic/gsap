@@ -121,7 +121,7 @@ def test_fullpipeline():  # {
 
     in_seq = seqannotator.parseSeqRecordFile(conseq_file)
     ref_seq = seqannotator.parseSeqRecordFile(refseq_file)
-    print("transfering annotations...")
+    print("transferring annotations...")
     in_seq_records = seqannotator.transferAnnotations(in_seq, ref_seq)
     in_seq_records = seqannotator.fillSeqGaps(in_seq_records, ref_seq)
     in_vcf_gz_file = outdir_base + "raw_variants.vcf.gz"
@@ -135,7 +135,7 @@ def test_fullpipeline():  # {
 
     header_annotations = {}
     header_annotations["comment"] = (
-        "CBCB's BSB1 strain of B. subtilis: sequenced using Illumina and assembled against the reference strain 168 (AL009126.3) dated 26-Feb-2014. The assembly was done using bowtie-2, and the varaint analysis was done using GATK (Genome Analysis ToolKit). The annotations (gene, CDS, tRNA and rRNA) from the reference strain AL009126 were transferred using RATT (Rapid Annotation Transfer Tool). The VCF file from the GATK pipeline was used to add annotations on variant calls."
+        "CBCB's BSB1 strain of B. subtilis: sequenced using Illumina and assembled against the reference strain 168 (AL009126.3) dated 26-Feb-2014. The assembly was done using bowtie-2, and the variant analysis was done using GATK (Genome Analysis ToolKit). The annotations (gene, CDS, tRNA and rRNA) from the reference strain AL009126 were transferred using RATT (Rapid Annotation Transfer Tool). The VCF file from the GATK pipeline was used to add annotations on variant calls."
     )
     header_annotations["organism"] = "Bacillus subtilis subsp. BSB1 from CBCB"
     header_annotations["taxonomy"] = [
@@ -147,7 +147,9 @@ def test_fullpipeline():  # {
         "Bacillus",
     ]
     header_annotations["molecule_type"] = "DNA"
-    in_seq_records = seqannotator.addHeaderAnnotations(in_seq_records, header_annotations)
+    in_seq_records = seqannotator.addHeaderAnnotations(
+        in_seq_records, header_annotations
+    )
     print("writing genbank file...")
 
     out_gb_file = "BSB1_annotated.gb"

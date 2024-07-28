@@ -1,59 +1,67 @@
+import pytest
 from copy import deepcopy
 
 from deap import base, creator, tools
 
 from gsap.sim.idea_insilico import PopulationManager, SNPSetManager
 
-snp_m = SNPSetManager(2000)
-# snp_m.addSNPs([(1940, 'mutS'), (1954, 'ribD'), (1000, 'trpC'), (1999, 'trpA'), (1995, 'yheD')])
-snp_m.addSNPs(
-    [(1940, "mutS"), (1954, "ribD"), (1000, "trpC"), (1999, "trpA"), (1995, "yheD")]
-)
-snp_m._answersheet = [
-    [
-        ([(18, 0), (200, 1), (360, 1), (942, 2), (1000, 0)], 10),
-        ([(18, 0), (294, 1)], 5),
-        ([(294, 1)], 3),
-        ([(1000, 0)], 3),
-    ],
-    [
-        ([(1900, 2), (1940, 0), (1954, 0), (1994, 0), (1995, 1), (1998, 1)], 20),
-        ([(1900, 2), (1954, 0), (1995, 1)], 15),
-        ([(1900, 2), (1954, 0)], 10),
-        ([(1940, 0), (1954, 0)], 9),
-        ([(1900, 2)], 4),
-        ([(1940, 0)], 4),
-        ([(1954, 0)], 3),
-    ],
-]
-# state space: 0 for silenced, 1 for pos flux, 2 for neg flux, 3 for unconstrained.
-pm = PopulationManager([0, 1, 2, 3], 5, snp_m)
+# arrange fixtures
+@pytest.fixture
+def gsap_sim_common(tmp_path):
+    snp_m = SNPSetManager(2000)
+    # snp_m.addSNPs([(1940, 'mutS'), (1954, 'ribD'), (1000, 'trpC'), (1999, 'trpA'), (1995, 'yheD')])
+    snp_m.addSNPs(
+        [(1940, "mutS"), (1954, "ribD"), (1000, "trpC"), (1999, "trpA"), (1995, "yheD")]
+    )
+    snp_m._answersheet = [
+        [
+            ([(18, 0), (200, 1), (360, 1), (942, 2), (1000, 0)], 10),
+            ([(18, 0), (294, 1)], 5),
+            ([(294, 1)], 3),
+            ([(1000, 0)], 3),
+        ],
+        [
+            ([(1900, 2), (1940, 0), (1954, 0), (1994, 0), (1995, 1), (1998, 1)], 20),
+            ([(1900, 2), (1954, 0), (1995, 1)], 15),
+            ([(1900, 2), (1954, 0)], 10),
+            ([(1940, 0), (1954, 0)], 9),
+            ([(1900, 2)], 4),
+            ([(1940, 0)], 4),
+            ([(1954, 0)], 3),
+        ],
+    ]
+    # state space: 0 for silenced, 1 for pos flux, 2 for neg flux, 3 for unconstrained.
+    pm = PopulationManager([0, 1, 2, 3], 5, snp_m)
 
-creator.create("FitnessMax", base.Fitness, weights=(1000.0,))
-creator.create("Individual", list, fitness=creator.FitnessMax)
-# creator.create("Individual", str, fitness=creator.FitnessMax)
+    creator.create("FitnessMax", base.Fitness, weights=(1000.0,))
+    creator.create("Individual", list, fitness=creator.FitnessMax)
+    # creator.create("Individual", str, fitness=creator.FitnessMax)
 
-toolbox = base.Toolbox()
+    toolbox = base.Toolbox()
 
-# toolbox.register("attr_state", random.randint, 0, 3) # is an element out of a set {0, 1, 2, 3}
-toolbox.register(
-    "attr_state", pm.generateIndividual, snp_m.getSNPSetAsASortedList()
-)  # a 3 var long pattern at 0th gen
-# 0 denotes the unconstrained, 1 the muted, 2 the positive flux, and 3 the negative flux states
-toolbox.register(
-    "individual", tools.initIterate, creator.Individual, toolbox.attr_state
-)
-toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-
-
-toolbox.register("evaluate", pm.evaluateFitness)
-toolbox.register("mate", pm.crossoverSNPAlleles)
-toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
-toolbox.register("select", tools.selTournament, tournsize=3)
-toolbox.register("clone", deepcopy)
+    # toolbox.register("attr_state", random.randint, 0, 3) # is an element out of a set {0, 1, 2, 3}
+    toolbox.register(
+        "attr_state", pm.generateIndividual, snp_m.getSNPSetAsASortedList()
+    )  # a 3 var long pattern at 0th gen
+    # 0 denotes the unconstrained, 1 the muted, 2 the positive flux, and 3 the negative flux states
+    toolbox.register(
+        "individual", tools.initIterate, creator.Individual, toolbox.attr_state
+    )
+    toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 
-def main():  # {
+    toolbox.register("evaluate", pm.evaluateFitness)
+    toolbox.register("mate", pm.crossoverSNPAlleles)
+    toolbox.register("mutate", tools.mutFlipBit, indpb=0.05)
+    toolbox.register("select", tools.selTournament, tournsize=3)
+    toolbox.register("clone", deepcopy)
+
+    return (toolbox, snp_m, pm)
+
+
+@pytest.mark.skip(reason="test performed manually, as it takes too long.")
+def test_idea_insilico(gsap_sim_common):  # {
+    toolbox, snp_m, pm = gsap_sim_common
     # random.seed(64)
 
     pop = toolbox.population(n=3000)
@@ -121,6 +129,8 @@ def main():  # {
     pm._best_ind = best_ind
     pm._final_pop = pop
 
+    return True
+
 
 #     print("Best individual is %s, %s" % (best_ind, best_ind.fitness.values))
 #     # Numpy equality function (operators.eq) between two arrays returns the
@@ -141,5 +151,3 @@ def main():  # {
 #     return pop, stats, hof
 # }
 
-if __name__ == "__main__":
-    main()

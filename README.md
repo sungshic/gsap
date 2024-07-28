@@ -1,6 +1,6 @@
 # GSAP: Genome Sequence Assembly-and-Annotation Pipeline
 
-This Python package automates the assembly, annotation, and variant analysis of genome sequence data from NGS short read seqeunces.
+This Python package automates the assembly, annotation, and variant analysis of genome sequence data from NGS short read sequences.
 
 ---
 
