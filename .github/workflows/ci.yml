@@ -110,32 +110,38 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out the GSAP repo
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ github.head_ref || github.ref_name }}
 
-      # Do a dry run of PSR
-      - name: Test release
-        uses: python-semantic-release/python-semantic-release@v9.8.1
-        if: github.ref_name != 'main'
-        with:
-          root_options: --noop
-
-      # On main branch: actual PSR + upload to PyPI & GitHub
-      - name: Release
-        uses: python-semantic-release/python-semantic-release@v9.8.1
-        id: release
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         if: github.ref_name == 'main'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Publish package distributions to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        if: steps.release.outputs.released == 'true'
-
-      - name: Publish package distributions to GitHub Releases
-        uses: python-semantic-release/upload-to-gh-release@main
-        if: steps.release.outputs.released == 'true'
+      - name: Extract metadata (tags, labels)
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          images: sungshic/gsap
+
+      - name: Build and push Docker image
+        id: push
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
+          subject-digest: ${{ steps.push.outputs.digest }}
+          push-to-registry: true
