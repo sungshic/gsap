@@ -1,7 +1,5 @@
-from gsap.annotateseq import SeqAnnotator
-from gsap.preprocessing import (
-    PreProcessor,
-)
+from gsap.annotateseq import HeaderAnnotationType, SeqAnnotator
+from gsap.preprocessing import PreProcessor
 from gsap.tuxedpreprocessing import (
     TPreProcessor,
 )
@@ -19,4 +17,5 @@ __all__ = [
     "VariantCaller",
     "TPreProcessor",
     "SeqAnnotator",
+    "HeaderAnnotationType",
 ]

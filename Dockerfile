@@ -16,7 +16,7 @@ RUN apt-get -y update
 # INSTALL
 RUN apt-get install -y -q build-essential curl git git-lfs vim tmux unzip nano python3 python3-dev virtualenv python3-pip x11-xserver-utils
 # matplotlib dependencies
-#RUN apt-get install -y -q pkg-config libfreetype6-dev libpng-dev 
+#RUN apt-get install -y -q pkg-config libfreetype6-dev libpng-dev
 # scipy dependencies
 #RUN apt-get install -y -q libatlas-base-dev libatlas3-base libopenblas-base libopenblas-dev gfortran
 

@@ -30,6 +30,15 @@ EMBL_FORMAT = "embl"
 GB_FORMAT = "gb"
 
 
+class HeaderAnnotationType(TypedDict, total=False):
+    """defines the header_annotations parameter type of addHeaderAnnotations."""
+
+    comment: str
+    organism: str
+    taxonomy: str
+    molecule_type: str
+
+
 class SeqAnnotator:
     """
     Offers methods for annotating a genome sequence.
@@ -398,14 +407,6 @@ class SeqAnnotator:
 
         return in_seq
 
-    class HeaderAnnotationType(TypedDict):
-        """defines the header_annotations parameter type of addHeaderAnnotations."""
-
-        comment: str
-        organism: str
-        taxonomy: str
-        molecule_type: str
-
     def addHeaderAnnotations(
         self, embl_seq_records: SeqRecord, header_annotations: HeaderAnnotationType
     ) -> SeqRecord:
@@ -420,13 +421,6 @@ class SeqAnnotator:
         newannotations["organism"] = header_annotations["organism"]
         newannotations["taxonomy"] = header_annotations["taxonomy"]
         newannotations["molecule_type"] = header_annotations["molecule_type"]
-
-        source_feature = [f for f in embl_seq_records.features if (f.type == "source")]
-        if len(source_feature) > 0:
-            source_feature[0].qualifiers["db_xref"] = ["taxon:unknown"]
-            source_feature[0].qualifiers["organism"] = ["Bacillus subtilis subsp. BSB1"]
-            source_feature[0].qualifiers["strain"] = ["BSB1 (CBCB)"]
-            source_feature[0].qualifiers["sub_species"] = ["subtilis"]
 
         embl_seq_records.annotations = newannotations
         embl_seq_records.description = (
