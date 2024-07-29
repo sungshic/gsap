@@ -91,6 +91,7 @@ By integrating these technologies and best practices, this open source project c
 ## Installation and Usage
 
 ### Get the Code
+
 Start by first cloning the repository:
 
 ```bash
@@ -99,6 +100,7 @@ cd gsap
 ```
 
 ### Get the Data
+
 In order to execute the pipeline with a custom data set, a specific directory structure is needed, as expected by GSAP's docker container. These directories serve as the interface between the local computer and the GSAP's runtime environment:
 
 ```bash
@@ -117,6 +119,7 @@ tar -xzf data_input/refseq/AL009126_v11.tar.gz -C data_input/refseq/
 ```
 
 ### Get the Runtime Environment
+
 Download and spawn the latest GSAP runtime environment, prebuilt by the Github Actions CI workflow:
 
 ```bash
@@ -125,6 +128,7 @@ docker compose up -d
 ```
 
 ### Build an image locally (please skip this step if using the pre-built image)
+
 While the latest pre-built GSAP image is available from the Docker Hub, this repo contains all the codes necessary to rebuild and run a Docker image locally by executing the following commands:
 
 ```bash
@@ -137,6 +141,7 @@ Please note, if running the build process on Apple silicon computers, the follow
 "Use Rosetta for x86_64/amd64 emulation on Apple Silicon"
 
 ### Running the Pipeline
+
 Once a GSAP container is launched, please check if the container is running without error like so:
 
 ```bash
@@ -197,7 +202,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
 ## How to Cite this Research
+
 ### BibTeX
+
 ```
 @phdthesis{park2019design,
   title={Design automation in synthetic biology: a dual evolutionary strategy},
@@ -206,4 +213,3 @@ This project follows the [all-contributors](https://github.com/all-contributors/
   school={Newcastle University}
 }
 ```
-
