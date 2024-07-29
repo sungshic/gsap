@@ -46,17 +46,15 @@ NGS devices, such as those made by Illumina, generate short read sequences that 
 
 The pipeline consists of four main parts: sequence assembly, sequence pre-processing, variant analysis, and sequence annotation.
 
-### Sequence Assembly
-
 ![image of the pipeline overview](https://github.com/sungshic/gsap/blob/main/docs/_static/assets/pipeline_overview1.png?raw=true)
 
 ## Evolving Research Computing: From Legacy Code to Modern Software Engineering Practices in research
 
-The initial code base for this project dates back to around 2015. The code here was manually forked and migrated from <a href="https://bitbucket.org/sungshic/genomeassemblypipeline" target="_blank">this Bitbucket repository</a>. It was originally a rudimentary implementation of a genome assembly pipeline written in Python 2.7, now refactored in Python 3.11 by adopting popular modern practices in software engineering, including meticulous documentation, containerisation, test-driven development, and continuous integration. The primary purpose of the initial code base was not to achieve high software engineering standards but to quickly assemble sequence samples of about 20 bacterial strains being studied at the Centre for Bacterial Cell Biology, Newcastle University.
+The initial code base for this project dates back to around 2015. The code here was manually forked and migrated from <a href="https://bitbucket.org/sungshic/genomeassemblypipeline" target="_blank">this Bitbucket repository</a>. It was originally a rudimentary implementation of a genome assembly pipeline written in Python 2.7, now refactored in Python 3.12 by adopting popular modern practices in software engineering, including meticulous documentation, containerisation, test-driven development, and continuous integration. The primary purpose of the initial code base was not to achieve high software engineering standards but to quickly assemble sequence samples of about 20 bacterial strains being studied at the Centre for Bacterial Cell Biology, Newcastle University. It was a hacky implementation, but it worked for the cause...
 
 Over the past decade, computer science has made inroads into many research fields traditionally not oriented toward computing. The fields of biological science, systems biology, and synthetic biology, in particular, have seen a significant adoption of research computing practices. Yet, software in these fields is often considered one-off disposable-ware, used primarily to support research output in the form of publications.
 
-One of the primary purposes of the GSAP repository is to showcase the need for adopting agile software engineering practices in research computing. These practices make it easier to develop, maintain, and distribute software, ultimately fostering long-term computational reproducibility in scientific research.
+This refactored GSAP repository is to showcase the need for adopting agile software engineering practices in research computing. These practices make it easier to develop, maintain, and distribute software, ultimately fostering long-term computational reproducibility in scientific research.
 
 ## Strategic choice of GSAP's tech stack to maximise computational reproducibility
 
