@@ -140,6 +140,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- markdownlint-disable -->
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
 <!-- markdownlint-enable -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- prettier-ignore-end -->

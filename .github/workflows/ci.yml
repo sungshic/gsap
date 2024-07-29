@@ -34,17 +34,6 @@ jobs:
           fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v6.0.1
 
-  contrib-readme-job:
-    runs-on: ubuntu-latest
-    name: A job to automate contrib in readme
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - name: Contribute List
-        uses: akhilmhdh/contributors-readme-action@v2.3.10
-        env:
-          GITHUB_TOKEN: ${{ secrets.README_UPDATE_TOKEN }}
   test:
     strategy:
       fail-fast: false
