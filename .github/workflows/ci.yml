@@ -108,6 +108,7 @@ jobs:
     permissions:
       id-token: write
       contents: write
+      attestations: write
 
     steps:
       - name: Check out the GSAP repo
