@@ -186,14 +186,14 @@ def main(sysargs: list[str] | None = None) -> None:
     pre_processor.buildRefFastaIndex(args.ref_seq_a, f"{seq_filepath_noext}.dict")
 
     print("calling variants...")
-    variant_caller.callVariants()
+    variant_caller.callVariants(f"{sessionid}_raw_variants.vcf.gz")
 
     print("finding a consensus fasta...")
     subprocess.call(
         [
             "./src/gsap/getconsensusfasta3.sh",
             args.ref_seq_a,
-            base_dir + "tests/data/test_ref_data/raw_variants.vcf.gz",
+            f"{args.tmp_dir}{sessionid}_raw_variants.vcf.gz",
             f"{args.tmp_dir}{sessionid}_consensus.fasta",
             base_dir + "src/gsap",
         ]
@@ -211,7 +211,7 @@ def main(sysargs: list[str] | None = None) -> None:
     print("transferring annotations...")
     in_seq_records = seqannotator.transferAnnotations(in_seq, ref_seq)
     in_seq_records = seqannotator.fillSeqGaps(in_seq_records, ref_seq)
-    in_vcf_gz_file = "tests/data/test_ref_data/raw_variants.vcf.gz"
+    in_vcf_gz_file = outdir_base + f"{sessionid}_raw_variants.vcf.gz"
     in_vcf_file = outdir_base + f"{sessionid}_raw_variants.vcf"
 
     with gzip.open(in_vcf_gz_file, "rb") as f_in:
