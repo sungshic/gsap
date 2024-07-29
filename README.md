@@ -27,11 +27,7 @@ This Python package automates the assembly, annotation, and variant analysis of 
   </a>
 </p>
 <p align="center">
-  <a href="https://pypi.org/project/gsap/">
-    <img src="https://img.shields.io/pypi/v/gsap.svg?logo=python&logoColor=fff&style=flat-square" alt="PyPI Version">
-  </a>
-  <img src="https://img.shields.io/pypi/pyversions/gsap.svg?style=flat-square&logo=python&amp;logoColor=fff" alt="Supported Python versions">
-  <img src="https://img.shields.io/pypi/l/gsap.svg?style=flat-square" alt="License">
+  <img alt="License" src="https://img.shields.io/github/license/sungshic/gsap">
 </p>
 
 ---
