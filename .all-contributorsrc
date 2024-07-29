@@ -9,7 +9,19 @@
   "imageSize": 80,
   "commit": true,
   "commitConvention": "angular",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "sungshic",
+      "name": "Sunny Park",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11631726?v=4",
+      "profile": "https://www.researchgate.net/profile/Sungshic-Park",
+      "contributions": [
+        "src",
+        "tests",
+        "doc"
+      ]
+    }
+  ],
   "contributorsPerLine": 7,
   "skipCi": true
 }
