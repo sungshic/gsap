@@ -104,12 +104,14 @@ def main(sysargs: list[str] | None = None) -> None:
         args.rev_seq,
         args.ref_seq_a,
         "./tests/data/test_ref_data/",
+        "./tests/data/test_ref_data/",
     )
 
     variant_caller = VariantCaller(
         "./src/gsap/",
         args.ref_seq_a,
         f"{base_dir}/tests/data/test_ref_data/{sessionid}_addrg_reads.bam",
+        f"{base_dir}/tests/test_ref_data/",
         f"{base_dir}/tests/test_ref_data/",
     )
 
