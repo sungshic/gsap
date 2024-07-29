@@ -111,8 +111,8 @@ def main(sysargs: list[str] | None = None) -> None:
         "./src/gsap/",
         args.ref_seq_a,
         f"{base_dir}/tests/data/test_ref_data/{sessionid}_addrg_reads.bam",
-        f"{base_dir}/tests/test_ref_data/",
-        f"{base_dir}/tests/test_ref_data/",
+        f"{base_dir}/tests/data/test_ref_data/",
+        f"{base_dir}/tests/data/test_ref_data/",
     )
 
     print("######## pre-processing raw reads... ########")
