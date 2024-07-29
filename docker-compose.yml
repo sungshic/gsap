@@ -3,5 +3,5 @@ services:
     image: sungshic/gsap:latest
     container_name: gsap_v1.0
     volumes:
-      - ./tests/data_input:/gsap/tests/data/data_input
-      - ./tests/data_output:/gsap/tests/data/data_output
+      - ./data_input:/gsap/data_input
+      - ./data_output:/gsap/data_output

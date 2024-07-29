@@ -1,6 +1,7 @@
 """gsap.gsap: provides entry point main()."""
 
 import gzip
+import re
 import shutil
 import subprocess
 import uuid
@@ -71,6 +72,13 @@ def get_parser() -> ArgumentParser:
         required=True,
     )
     parser.add_argument(
+        "--tmp_dir",
+        "-T",
+        help="specify a path to the directory to hold temp intermediary files: \
+                -T ./data_output/",
+        required=True,
+    )
+    parser.add_argument(
         "--out_filepath",
         "-O",
         help="specify a path to the final output file in Genbank format: \
@@ -103,16 +111,16 @@ def main(sysargs: list[str] | None = None) -> None:
         args.fwd_seq,
         args.rev_seq,
         args.ref_seq_a,
-        "./tests/data/test_ref_data/",
-        "./tests/data/test_ref_data/",
+        args.tmp_dir,
+        args.tmp_dir,
     )
 
     variant_caller = VariantCaller(
         "./src/gsap/",
         args.ref_seq_a,
-        f"{base_dir}/tests/data/test_ref_data/{sessionid}_addrg_reads.bam",
-        f"{base_dir}/tests/data/test_ref_data/",
-        f"{base_dir}/tests/data/test_ref_data/",
+        f"{args.tmp_dir}/{sessionid}_addrg_reads.bam",
+        args.tmp_dir,
+        args.tmp_dir,
     )
 
     print("######## pre-processing raw reads... ########")
@@ -126,55 +134,56 @@ def main(sysargs: list[str] | None = None) -> None:
 
     print("sorting aligned reads...")
     pre_processor.sortSAMIntoBAM(
-        base_dir + f"tests/data/test_ref_data/{sessionid}_aligned_reads.sam",
+        f"{args.tmp_dir}{sessionid}_aligned_reads.sam",
         f"{sessionid}_sorted_reads.bam",
     )  # this command requires lots of memory, 4096MB used
 
     print("build bam index for sorted_reads.bam")
     pre_processor.buildBamIndex(
-        base_dir + f"tests/data/test_ref_data/{sessionid}_sorted_reads.bam",
-        base_dir + f"tests/data/test_ref_data/{sessionid}_sorted_reads.bai",
+        f"{args.tmp_dir}{sessionid}_sorted_reads.bam",
+        f"{args.tmp_dir}{sessionid}_sorted_reads.bai",
     )
 
     print("removing unmapped reads...")
     pre_processor.removeUnmappedReads(
-        base_dir + f"tests/data/test_ref_data/{sessionid}_sorted_reads.bam",
-        base_dir + f"tests/data/test_ref_data/{sessionid}_filtered_sample_aligned.bam",
-        base_dir + f"tests/data/test_ref_data/{sessionid}_unmapped_reads.bam",
+        f"{args.tmp_dir}{sessionid}_sorted_reads.bam",
+        f"{args.tmp_dir}{sessionid}_filtered_sample_aligned.bam",
+        f"{args.tmp_dir}{sessionid}_unmapped_reads.bam",
     )
 
     print("build bam index for filtered_sample_aligned.bam")
     pre_processor.buildBamIndex(
-        base_dir + f"tests/data/test_ref_data/{sessionid}_filtered_sample_aligned.bam",
-        base_dir + f"tests/data/test_ref_data/{sessionid}_filtered_sample_aligned.bai",
+        f"{args.tmp_dir}{sessionid}_filtered_sample_aligned.bam",
+        f"{args.tmp_dir}{sessionid}_filtered_sample_aligned.bai",
     )
 
     print("sorting the filtered bam...")
     pre_processor.sortBAMIntoBAM(
-        f"tests/data/test_ref_data/{sessionid}_filtered_sample_aligned.bam",
+        f"{args.tmp_dir}{sessionid}_filtered_sample_aligned.bam",
         f"{sessionid}_filtered_sample_aligned_sorted.bam",
     )
     print("marking duplicate reads...")
     pre_processor.markDuplicates(
-        base_dir
-        + f"tests/data/test_ref_data/{sessionid}_filtered_sample_aligned_sorted.bam",
+        f"{args.tmp_dir}{sessionid}_filtered_sample_aligned_sorted.bam",
         f"{sessionid}_dedup_reads.bam",
         f"{sessionid}_metrics.txt",
     )
     print("adding read group...")
     pre_processor.addReadGroup(
-        base_dir + f"tests/data/test_ref_data/{sessionid}_dedup_reads.bam",
+        f"{args.tmp_dir}{sessionid}_dedup_reads.bam",
         f"{sessionid}_addrg_reads.bam",
     )
     print("building bam index from read groups...")
     pre_processor.buildBamIndex(
-        base_dir + f"tests/data/test_ref_data/{sessionid}_addrg_reads.bam",
-        base_dir + f"tests/data/test_ref_data/{sessionid}_addrg_reads.bai",
+        f"{args.tmp_dir}{sessionid}_addrg_reads.bam",
+        f"{args.tmp_dir}{sessionid}_addrg_reads.bai",
     )
     print("building reference fasta index...")
-    pre_processor.buildRefFastaIndex(
-        args.ref_seq_a, f"{args.ref_seq_a}.{sessionid}.dict"
-    )
+    re_match = re.search("(.*)\\.(gb|embl|fasta)$", args.ref_seq_a)
+    if type(re_match) is not re.Match:
+        raise Exception("The ref_seq_a file has unsupported extension")
+    seq_filepath_noext = re_match.groups()[0]
+    pre_processor.buildRefFastaIndex(args.ref_seq_a, f"{seq_filepath_noext}.dict")
 
     print("calling variants...")
     variant_caller.callVariants()
@@ -185,14 +194,14 @@ def main(sysargs: list[str] | None = None) -> None:
             "./src/gsap/getconsensusfasta3.sh",
             args.ref_seq_a,
             base_dir + "tests/data/test_ref_data/raw_variants.vcf.gz",
-            base_dir + f"tests/data/test_ref_data/{sessionid}_consensus.fasta",
+            f"{args.tmp_dir}{sessionid}_consensus.fasta",
             base_dir + "src/gsap",
         ]
     )
 
     refseq_format = "gb"
-    conseq_file = base_dir + f"tests/data/test_ref_data/{sessionid}_consensus.fasta"
-    outdir_base = base_dir + "tests/data/test_ref_data/"
+    conseq_file = f"{args.tmp_dir}{sessionid}_consensus.fasta"
+    outdir_base = args.tmp_dir
     seqannotator = SeqAnnotator(
         args.ref_seq_b, conseq_file, outdir_base, ref_format=refseq_format
     )
@@ -202,7 +211,7 @@ def main(sysargs: list[str] | None = None) -> None:
     print("transferring annotations...")
     in_seq_records = seqannotator.transferAnnotations(in_seq, ref_seq)
     in_seq_records = seqannotator.fillSeqGaps(in_seq_records, ref_seq)
-    in_vcf_gz_file = outdir_base + "raw_variants.vcf.gz"
+    in_vcf_gz_file = "tests/data/test_ref_data/raw_variants.vcf.gz"
     in_vcf_file = outdir_base + f"{sessionid}_raw_variants.vcf"
 
     with gzip.open(in_vcf_gz_file, "rb") as f_in:
