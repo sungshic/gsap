@@ -49,4 +49,5 @@ Once a GSAP container is launched, please check if the container is running with
 ```bash
 docker ps
 ```
+
 Next, see the {ref}`section about usage <usage>` to see how to use it.
