@@ -68,14 +68,19 @@ Making the code base of a research output open source is certainly an important 
 
 This repository exemplifies the open-source provisioning of a computerized scientific pipeline, based on the following choices in its tech stack:
 
-Python: - One of the most versatile languages for integrating libraries written in multiple programming languages. - Strong and widespread community support for libraries in bioinformatics, AI, and backend microservice frameworks.
+Python:
+- One of the most versatile languages for integrating libraries written in multiple programming languages.
+- Strong and widespread community support for libraries in bioinformatics, AI, and backend microservice frameworks.
+
 Open Science Framework: 
 - Serves as a repository to store large datasets in research.
 - A non-profit initiative with ample storage and bandwidth quotas far exceeding those of GitHub and GitLab.
+
 Docker:
 - The de facto community standard in containerization.
 - Widespread community adoption and support for providing IaC at scale.
 - Compatible with massively scalable cloud architectures such as Kubernetes.
+
 Best Practices in Software Engineering for Test-Driven Agile Development and the Adoption of Continuous Integration:
 - Poetry for Python package management.
 - Pytest for Python unit testing.
