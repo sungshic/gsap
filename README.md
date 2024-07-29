@@ -195,3 +195,15 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## How to Cite this Research
+### BibTeX
+```
+@phdthesis{park2019design,
+  title={Design automation in synthetic biology: a dual evolutionary strategy},
+  author={Park, Sungshic},
+  year={2019},
+  school={Newcastle University}
+}
+```
+
