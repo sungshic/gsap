@@ -14,7 +14,7 @@ RUN apt-get -y update
 RUN apt-get install -y -q software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get -y update
-RUN apt-get install -y -q build-essential curl git vim tmux unzip nano python3 python3-virtualenv python3-pip 
+RUN apt-get install -y -q build-essential curl git vim tmux unzip nano python3 python3-virtualenv python3-pip
 #RUN pip install poetry
 RUN curl -sSL https://install.python-poetry.org -o /tmp/install-poetry.py && python3 /tmp/install-poetry.py && rm /tmp/install-poetry.py
 RUN git clone https://github.com/sungshic/gsap.git
