@@ -94,15 +94,17 @@ By integrating these technologies and best practices, this open source project c
 
 Install this via docker and docker-compose by:
 
-`$ docker compose up -d`
+```bash
+docker compose up -d
+```
 
 It would launch a container in your local computer, by downloading the latest pre-built GSAP image from the Docker Hub.
 
 Alternatively, this repo contains all the codes necessary to rebuild and run a Docker image locally by executing the following commands:
 
-```
-$ docker compose -f docker-compose.dev.yml build
-$ docker compose -f docker-compose.dev.yml up -d
+```bash
+docker compose -f docker-compose.dev.yml build
+docker compose -f docker-compose.dev.yml up -d
 ```
 
 Please note, if running the build process on Apple silicon computers, the following general setting of Docker Desktop should be opted out (FYI: it is opted in by default as of Docker Desktop version 4.30.0 (149282)).
@@ -111,20 +113,20 @@ Please note, if running the build process on Apple silicon computers, the follow
 
 Once a GSAP container is launched, please check if the container is running without error like so:
 
-```
-$ docker ps
+```bash
+docker ps
 ```
 
 Then enter the container's command line space by executing:
 
-```
-$ docker exec -it $(docker ps -aqf "ancestor=sungshic/gsap") /bin/bash
+```bash
+docker exec -it $(docker ps -aqf "ancestor=sungshic/gsap") /bin/bash
 ```
 
 Or, by using the following, if the image was rebuilt locally:
 
-```
-$ docker exec -it $(docker ps -aqf "ancestor=gsap") /bin/bash
+```bash
+docker exec -it $(docker ps -aqf "ancestor=gsap") /bin/bash
 ```
 
 ## Contributors ✨
