@@ -158,6 +158,12 @@ In the container's command line, execute the following to run the GSAP pipeline 
 python src/gsap -F ./data_input/sample/SP2_S6_L001_R1_001.fastq.gz -R ./data_input/sample/SP2_S6_L001_R2_001.fastq.gz -N testgenome -A ./data_input/refseq/AL009126_v11/AL009126.fasta -B ./data_input/refseq/AL009126_v11/AL009126.gb -C "hello" -o "B. subtilis" -m "DNA" -O ./data_output/out.gb -T ./data_output/
 ```
 
+Now, it would take some time for the pipeline to fully perform the sequence assembly, analysis, and annotation. 
+After a long wait, somewhere between 3 to 4 hours for the example shown here on a powerful laptop machine, the resulting Genbank file will appear under the designated path. In this example:
+```
+ls -lh data_output/out.gb
+```
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
