@@ -138,8 +138,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <!-- readme: contributors -start -->
 <table>
-	<tbody>
-		<tr>
+    <tbody>
+        <tr>
             <td align="center">
                 <a href="https://github.com/sungshic">
                     <img src="https://avatars.githubusercontent.com/u/11631726?v=4" width="100;" alt="sungshic"/>
@@ -147,8 +147,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
                     <sub><b>sungshic</b></sub>
                 </a>
             </td>
-		</tr>
-	<tbody>
+        </tr>
+    <tbody>
 </table>
 <!-- readme: contributors -end -->
 <!-- markdownlint-enable -->
