@@ -84,7 +84,8 @@ Docker:
 Best Practices in Software Engineering for Test-Driven Agile Development and the Adoption of Continuous Integration:
 - Poetry for Python package management.
 - Pytest for Python unit testing.
-- Pre-commit for managing the linting, static types and error checks - Codespell, Ruff & Mypy for applying various rule-based validity checks via pre-commit.
+- Pre-commit for managing the linting, static types and error checks
+- Codespell, Ruff & Mypy for applying various rule-based validity checks via pre-commit.
 - GitHub Actions for build, test, and release workflows.
 
 By integrating these technologies and best practices, this open source project can provide a complete and standardised runtime environment along with necessary data and code to ensure the general reproducibility of computational research.
