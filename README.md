@@ -73,7 +73,7 @@ Python:
 - One of the most versatile languages for integrating libraries written in multiple programming languages.
 - Strong and widespread community support for libraries in bioinformatics, AI, and backend microservice frameworks.
 
-Open Science Framework: 
+Open Science Framework:
 
 - Serves as a repository to store large datasets in research.
 - A non-profit initiative with ample storage and bandwidth quotas far exceeding those of GitHub and GitLab.
