@@ -4,14 +4,28 @@
 
 Assuming that you've followed the {ref}`installations steps <installation>`, you're now ready to use this package.
 
-Start by importing it:
-
-```python
-import gsap
-```
+Start with entering the container's command line by executing:
 
 ```docker
-docker run sungshic/gsap python3 src/gsap -F tests/data/sample1/SP2_S6_L001_R1_001.fastq.gz -R tests/data/sample1/SP2_S6_L001_R2_001.fastq.gz -N AL009126_v11 -A tests/data/RefGenome/AL009126_v11/AL009126.fasta -B tests/data/RefGenome/AL009126_v11/AL009126.gb -O tests/data/test_ref_data/final.gb
+docker exec -it $(docker ps -aqf "ancestor=sungshic/gsap") /bin/bash
 ```
 
-TODO: Document usage
+Or, by using the following, if the image was rebuilt locally:
+
+```docker
+docker exec -it $(docker ps -aqf "ancestor=gsap") /bin/bash
+```
+
+In the container's command line, execute the following to run the GSAP pipeline against the example data:
+
+```bash
+python src/gsap -F ./data_input/sample/SP2_S6_L001_R1_001.fastq.gz -R ./data_input/sample/SP2_S6_L001_R2_001.fastq.gz -N testgenome -A ./data_input/refseq/AL009126_v11/AL009126.fasta -B ./data_input/refseq/AL009126_v11/AL009126.gb -C "hello" -o "B. subtilis" -m "DNA" -O ./data_output/out.gb -T ./data_output/
+```
+
+Now, it would take some time for the pipeline to fully perform the sequence assembly, analysis, and annotation. 
+After a long wait, somewhere between 3 to 4 hours for the example shown here on a powerful laptop machine, the resulting Genbank file will appear under the designated path. In this example:
+```bash
+ls -lh data_output/out.gb
+```
+
+
