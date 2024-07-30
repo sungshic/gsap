@@ -83,7 +83,7 @@ class SeqAnnotator:
         refseq_path: str,
         prefix_str: str = "consensus_ratt",
         transfer_type: str = "Strain",
-        ratt_home_str: str = "toolset/ratt",
+        ratt_home_str: str = "src/gsap/toolset/ratt",
         final_copyto_path: str | None = None,
     ) -> None:
         """Transfers annotations from a reference genome to the assembled genome."""
@@ -102,6 +102,7 @@ class SeqAnnotator:
         print(pwd + "/" + self._refseq_file)
         command = os.environ["RATT_HOME"] + "/" + "start.ratt.sh"
 
+        print(f"calling ratt command, {pwd}/{refseq_dir},{pwd}/{self._conseq_file}")
         subprocess.call(
             [
                 command,
@@ -109,9 +110,12 @@ class SeqAnnotator:
                 pwd + "/" + self._conseq_file,
                 str(prefix_str),
                 transfer_type,
-            ]
+            ],
+            shell=False,
         )
 
+        # dev_note: 30/Jul/2024 refactor the following to use shutil.copyfil
+        # instead of /usr/bin/cp
         if final_copyto_path:
             subprocess.call(
                 [
@@ -243,7 +247,13 @@ class SeqAnnotator:
         return new_embl_seq
 
     def transferAnnotations(self, in_seq: SeqRecord, ref_seq: SeqRecord) -> SeqRecord:
-        """Transfers annotations from a reference genome to the assembled genome."""
+        """
+        Transfers annotations from a reference genome to the assembled genome.
+
+        This is an interim hack to run through the pipeline, until the migration of
+        Rapid Annotation Transfer Tool (RATT) is finished.
+
+        """
         ref_features = ref_seq.features
         newfeatures = list(in_seq.features)
         for f in ref_features:

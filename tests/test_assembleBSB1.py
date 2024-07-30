@@ -4,7 +4,7 @@ import os
 import subprocess
 
 import pytest
-import sh
+import gzip
 
 from gsap import PreProcessor, SeqAnnotator, VariantCaller
 
@@ -126,7 +126,11 @@ def test_fullpipeline():  # {
     in_seq_records = seqannotator.fillSeqGaps(in_seq_records, ref_seq)
     in_vcf_gz_file = outdir_base + "raw_variants.vcf.gz"
     in_vcf_file = outdir_base + "raw_variants.vcf"
-    sh.gunzip("-kf", in_vcf_gz_file)
+
+    with gzip.open(in_vcf_gz_file, "rb") as f_in:
+        with open(in_vcf_file, "wb") as f_out:
+            shutil.copyfileobj(f_in, f_out)
+
     in_seq_records = seqannotator.transferVCFAnnotations(
         in_seq_records, ref_seq, in_vcf_file
     )

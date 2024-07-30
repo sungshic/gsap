@@ -53,6 +53,12 @@ def test_getconsensusfasta3(gsap_test_common):
 
     assert os.path.exists(tmp_test_data_dir + "consensus.fasta") == True
 
+#def test_executeRATT(gsap_test_common):
+#    seqannotator, test_ref_data_dir, tmp_test_data_dir, teardown = gsap_test_common
+#    seqannotator.executeRATT("./tests/data/RefGenome/AL009126_v11/AL009126.gb")
+#    print(f"test_executeRATT: tmp_path: {tmp_test_data_dir}")
+#    assert True == False
+
 
 def test_annotateseq(gsap_test_common):
     seqannotator, test_ref_data_dir, tmp_test_data_dir, teardown = gsap_test_common
