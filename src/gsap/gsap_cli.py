@@ -238,6 +238,6 @@ def main(sysargs: list[str] | None = None) -> None:
     out_gb_file = f"{sessionid}_output.gb"
     seqannotator.writeEMBLFile(in_seq_records, out_gb_file, "gb")
 
-    shutil.copyfile(out_gb_file, args.out_filepath)
+    shutil.copyfile(outdir_base + out_gb_file, args.out_filepath)
 
     print("finished assembling the genome sequence")
